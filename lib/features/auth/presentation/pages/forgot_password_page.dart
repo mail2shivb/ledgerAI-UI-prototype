@@ -9,7 +9,7 @@ class ForgotPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const PageScaffold(
       title: 'Forgot password',
-      subtitle: 'We'll help you regain access',
+      subtitle: 'We will help you regain access',
       showBack: true,
       child: EmptyStateCard(
         icon: Icons.auto_awesome_rounded,
