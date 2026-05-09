@@ -1,0 +1,21 @@
+{
+  "@@locale": "en",
+  "appName": "LedgerAI",
+  "tabHome": "Home",
+  "tabVault": "Vault",
+  "tabAdd": "Add",
+  "tabReminders": "Reminders",
+  "tabReports": "Reports",
+  "actionAddDocument": "Add document",
+  "actionAddBill": "Add bill or receipt",
+  "actionAddReminder": "Add reminder",
+  "actionAddTask": "Add task",
+  "actionAddPerson": "Add person",
+  "actionBankingWallet": "Banking & wallet",
+  "vaultEmptyTitle": "Your vault is private",
+  "vaultEmptyMessage": "Records you add stay on this device.",
+  "signIn": "Sign in",
+  "createAccount": "Create account",
+  "continueWithBiometrics": "Continue with biometrics",
+  "unlockVault": "Unlock vault"
+}

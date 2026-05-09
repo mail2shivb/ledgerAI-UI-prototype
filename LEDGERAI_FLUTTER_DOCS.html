@@ -1,0 +1,3408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LedgerAI Flutter Documentation - 56 Screens</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #6B46C1;
+            border-bottom: 4px solid #6B46C1;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #553C9A;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            page-break-before: always;
+        }
+
+        h3 {
+            color: #6B46C1;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .meta {
+            background: #F3F0FF;
+            padding: 20px;
+            border-left: 4px solid #6B46C1;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .meta p {
+            margin: 5px 0;
+        }
+
+        .screen-list {
+            background: #F9FAFB;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .screen-list ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .screen-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .screen-list li:before {
+            content: "📱 ";
+            margin-right: 8px;
+        }
+
+        pre {
+            background: #1E1E1E;
+            color: #D4D4D4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        code {
+            font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+        }
+
+        .file-header {
+            background: #6B46C1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .toc {
+            background: #F9FAFB;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            page-break-before: auto;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .toc a {
+            color: #6B46C1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            pre {
+                page-break-inside: avoid;
+                font-size: 10px;
+            }
+
+            h2 {
+                page-break-before: always;
+            }
+
+            h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .summary h3 {
+            color: white;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 LedgerAI Flutter App Documentation</h1>
+
+        <div class="meta">
+            <p><strong>Project:</strong> LedgerAI - AI-Powered Financial Management Mobile App</p>
+            <p><strong>Platform:</strong> Flutter (iOS & Android)</p>
+            <p><strong>Total Screens:</strong> 56</p>
+            <p><strong>Generated:</strong> May 9, 2026</p>
+        </div>
+
+        <div class="summary">
+            <h3>🎨 Design Overview</h3>
+            <p><strong>Visual Style:</strong> Slack-style purple gradient header with rounded white content sheets</p>
+            <p><strong>Color Palette:</strong> Light lavender theme (#F3F0FF, #E9D5FF, #C4B5FD)</p>
+            <p><strong>Primary Color:</strong> Purple (#6B46C1 to #553C9A gradient)</p>
+            <p><strong>Navigation:</strong> 5-tab bottom navigation (Home, Vault, Add+, Reminders, Reports) with elevated "+" button</p>
+            <p><strong>Locale:</strong> UK-specific sample data (GBP currency, UK date formats)</p>
+        </div>
+
+        <div class="toc">
+            <h2>📋 Table of Contents</h2>
+            <ul>
+                <li><a href="#auth.dart">Authentication Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">1. SplashScreen</li>
+                        <li style="font-size: 0.9em;">2. OnboardingScreen</li>
+                        <li style="font-size: 0.9em;">3. LoginScreen</li>
+                        <li style="font-size: 0.9em;">4. SignupScreen</li>
+                        <li style="font-size: 0.9em;">5. ForgotPasswordScreen</li>
+                        <li style="font-size: 0.9em;">6. ResetPasswordScreen</li>
+                        <li style="font-size: 0.9em;">7. VerifyEmailScreen</li>
+                        <li style="font-size: 0.9em;">8. BiometricSetupScreen</li>
+                    </ul>
+                </li>
+                <li><a href="#main_screens.dart">Main Navigation Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">9. HomeScreen</li>
+                        <li style="font-size: 0.9em;">10. VaultScreen</li>
+                        <li style="font-size: 0.9em;">11. AddTransactionScreen</li>
+                        <li style="font-size: 0.9em;">12. AddActionSheet (Modal)</li>
+                        <li style="font-size: 0.9em;">13. TransactionDetailScreen</li>
+                        <li style="font-size: 0.9em;">14. CategoryDetailScreen</li>
+                        <li style="font-size: 0.9em;">15. SearchScreen</li>
+                        <li style="font-size: 0.9em;">16. FilterScreen</li>
+                        <li style="font-size: 0.9em;">17. NotificationsScreen</li>
+                    </ul>
+                </li>
+                <li><a href="#reminders.dart">Reminders Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">18. RemindersScreen</li>
+                        <li style="font-size: 0.9em;">19. CreateReminderScreen</li>
+                        <li style="font-size: 0.9em;">20. EditReminderScreen</li>
+                        <li style="font-size: 0.9em;">21. ReminderDetailScreen</li>
+                        <li style="font-size: 0.9em;">22. RecurringReminderScreen</li>
+                    </ul>
+                </li>
+                <li><a href="#reports.dart">Reports Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">23. ReportsScreen</li>
+                        <li style="font-size: 0.9em;">24. SpendingReportScreen</li>
+                        <li style="font-size: 0.9em;">25. IncomeReportScreen</li>
+                        <li style="font-size: 0.9em;">26. CategoryReportScreen</li>
+                        <li style="font-size: 0.9em;">27. TrendsReportScreen</li>
+                        <li style="font-size: 0.9em;">28. ExportReportScreen</li>
+                        <li style="font-size: 0.9em;">29. CustomReportScreen</li>
+                    </ul>
+                </li>
+                <li><a href="#family.dart">Family Management Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">30. FamilyScreen</li>
+                        <li style="font-size: 0.9em;">31. InviteMemberScreen</li>
+                        <li style="font-size: 0.9em;">32. MemberDetailScreen</li>
+                        <li style="font-size: 0.9em;">33. EditMemberScreen</li>
+                        <li style="font-size: 0.9em;">34. SharedCategoriesScreen</li>
+                        <li style="font-size: 0.9em;">35. SharedBudgetScreen</li>
+                        <li style="font-size: 0.9em;">36. FamilySettingsScreen</li>
+                        <li style="font-size: 0.9em;">37. ActivityLogScreen</li>
+                        <li style="font-size: 0.9em;">38. PermissionsScreen</li>
+                    </ul>
+                </li>
+                <li><a href="#misc.dart">Settings & Miscellaneous Screens</a>
+                    <ul style="padding-left: 30px; margin-top: 5px;">
+                        <li style="font-size: 0.9em;">39. ProfileScreen</li>
+                        <li style="font-size: 0.9em;">40. EditProfileScreen</li>
+                        <li style="font-size: 0.9em;">41. SettingsScreen</li>
+                        <li style="font-size: 0.9em;">42. SecurityScreen</li>
+                        <li style="font-size: 0.9em;">43. PrivacyScreen</li>
+                        <li style="font-size: 0.9em;">44. NotificationSettingsScreen</li>
+                        <li style="font-size: 0.9em;">45. AppearanceScreen</li>
+                        <li style="font-size: 0.9em;">46. LanguageScreen</li>
+                        <li style="font-size: 0.9em;">47. CurrencyScreen</li>
+                        <li style="font-size: 0.9em;">48. DataBackupScreen</li>
+                        <li style="font-size: 0.9em;">49. ExportDataScreen</li>
+                        <li style="font-size: 0.9em;">50. HelpScreen</li>
+                        <li style="font-size: 0.9em;">51. FAQScreen</li>
+                        <li style="font-size: 0.9em;">52. ContactSupportScreen</li>
+                        <li style="font-size: 0.9em;">53. AboutScreen</li>
+                        <li style="font-size: 0.9em;">54. TermsScreen</li>
+                        <li style="font-size: 0.9em;">55. PrivacyPolicyScreen</li>
+                        <li style="font-size: 0.9em;">56. BudgetScreen</li>
+                        <li style="font-size: 0.9em;">57. CreateBudgetScreen</li>
+                        <li style="font-size: 0.9em;">58. EditBudgetScreen</li>
+                        <li style="font-size: 0.9em;">59. BudgetDetailScreen</li>
+                        <li style="font-size: 0.9em;">60. CategoryManagementScreen</li>
+                    </ul>
+                </li>
+
+                <li><a href="#core-files">Core Files (Theme, Router, Shell, Main)</a></li>
+                <li><a href="#configuration">Configuration (pubspec.yaml, README)</a></li>
+            </ul>
+        </div>
+
+        <div class="screen-list">
+            <h3>Complete Screen List (56 Screens)</h3>
+            <ul>
+                <li>SplashScreen</li>
+                <li>OnboardingScreen</li>
+                <li>LoginScreen</li>
+                <li>SignupScreen</li>
+                <li>ForgotPasswordScreen</li>
+                <li>ResetPasswordScreen</li>
+                <li>VerifyEmailScreen</li>
+                <li>BiometricSetupScreen</li>
+                <li>HomeScreen</li>
+                <li>VaultScreen</li>
+                <li>AddTransactionScreen</li>
+                <li>AddActionSheet (Modal)</li>
+                <li>TransactionDetailScreen</li>
+                <li>CategoryDetailScreen</li>
+                <li>SearchScreen</li>
+                <li>FilterScreen</li>
+                <li>NotificationsScreen</li>
+                <li>RemindersScreen</li>
+                <li>CreateReminderScreen</li>
+                <li>EditReminderScreen</li>
+                <li>ReminderDetailScreen</li>
+                <li>RecurringReminderScreen</li>
+                <li>ReportsScreen</li>
+                <li>SpendingReportScreen</li>
+                <li>IncomeReportScreen</li>
+                <li>CategoryReportScreen</li>
+                <li>TrendsReportScreen</li>
+                <li>ExportReportScreen</li>
+                <li>CustomReportScreen</li>
+                <li>FamilyScreen</li>
+                <li>InviteMemberScreen</li>
+                <li>MemberDetailScreen</li>
+                <li>EditMemberScreen</li>
+                <li>SharedCategoriesScreen</li>
+                <li>SharedBudgetScreen</li>
+                <li>FamilySettingsScreen</li>
+                <li>ActivityLogScreen</li>
+                <li>PermissionsScreen</li>
+                <li>ProfileScreen</li>
+                <li>EditProfileScreen</li>
+                <li>SettingsScreen</li>
+                <li>SecurityScreen</li>
+                <li>PrivacyScreen</li>
+                <li>NotificationSettingsScreen</li>
+                <li>AppearanceScreen</li>
+                <li>LanguageScreen</li>
+                <li>CurrencyScreen</li>
+                <li>DataBackupScreen</li>
+                <li>ExportDataScreen</li>
+                <li>HelpScreen</li>
+                <li>FAQScreen</li>
+                <li>ContactSupportScreen</li>
+                <li>AboutScreen</li>
+                <li>TermsScreen</li>
+                <li>PrivacyPolicyScreen</li>
+                <li>BudgetScreen</li>
+                <li>CreateBudgetScreen</li>
+                <li>EditBudgetScreen</li>
+                <li>BudgetDetailScreen</li>
+                <li>CategoryManagementScreen</li>
+
+            </ul>
+        </div>
+
+        <h2 id="auth.dart">Authentication Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>1. SplashScreen</li>
+                <li>2. OnboardingScreen</li>
+                <li>3. LoginScreen</li>
+                <li>4. SignupScreen</li>
+                <li>5. ForgotPasswordScreen</li>
+                <li>6. ResetPasswordScreen</li>
+                <li>7. VerifyEmailScreen</li>
+                <li>8. BiometricSetupScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 auth.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+void _go(BuildContext c, String r) =&gt; Navigator.of(c).pushNamed(r);
+void _replace(BuildContext c, String r) =&gt; Navigator.of(c).pushReplacementNamed(r);
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+  @override
+  State&lt;SplashScreen&gt; createState() =&gt; _SplashScreenState();
+}
+
+class _SplashScreenState extends State&lt;SplashScreen&gt; {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) _replace(context, &#39;/onboarding&#39;);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.bg,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [AppColors.lavSurface, AppColors.bg]),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 80, height: 80,
+                decoration: BoxDecoration(
+                  gradient: AppColors.purpleButton,
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [BoxShadow(color: AppColors.royal.withOpacity(0.35), blurRadius: 36, offset: const Offset(0, 16))],
+                ),
+                child: const Icon(Icons.shield_outlined, color: Colors.white, size: 40),
+              ),
+              const SizedBox(height: 18),
+              const Text(&#39;LedgerAI&#39;, style: TextStyle(color: AppColors.text, fontSize: 28, fontWeight: FontWeight.w700)),
+              const Text(&#39;Your private life-admin vault&#39;, style: TextStyle(color: AppColors.text2, fontSize: 14)),
+              const SizedBox(height: 24),
+              const SizedBox(width: 28, height: 28, child: CircularProgressIndicator(color: AppColors.primary, strokeWidth: 2)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final features = [
+      (Icons.shield_outlined, &#39;Secure vault&#39;, &#39;Encrypted private storage&#39;),
+      (Icons.notifications_active_outlined, &#39;Smart reminders&#39;, &#39;Stay ahead of renewals&#39;),
+      (Icons.document_scanner_outlined, &#39;Scan or enter manually&#39;, &#39;Whatever fits you&#39;),
+      (Icons.group_outlined, &#39;Family admin&#39;, &#39;Share what matters&#39;),
+    ];
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 56, height: 56,
+            decoration: BoxDecoration(gradient: AppColors.purpleButton, borderRadius: BorderRadius.circular(16)),
+            child: const Icon(Icons.shield_outlined, color: Colors.white, size: 28),
+          ),
+          const SizedBox(height: 16),
+          const Text(&#39;Your life admin, beautifully organised&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700, height: 1.25)),
+          const SizedBox(height: 8),
+          const Text(&#39;Store documents, track renewals, manage bills, and stay ahead of important life admin — securely and privately.&#39;,
+              style: TextStyle(color: AppColors.text2, fontSize: 14)),
+          const SizedBox(height: 18),
+          GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12, mainAxisSpacing: 12,
+            shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
+            childAspectRatio: 1.5,
+            children: features.map((f) =&gt; LCard(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 36, height: 36,
+                    decoration: BoxDecoration(color: AppColors.lavPale, borderRadius: BorderRadius.circular(12)),
+                    child: Icon(f.$1, color: AppColors.royal, size: 18),
+                  ),
+                  const Spacer(),
+                  Text(f.$2, style: const TextStyle(color: AppColors.text, fontSize: 13, fontWeight: FontWeight.w600)),
+                  Text(f.$3, style: const TextStyle(color: AppColors.text2, fontSize: 11)),
+                ],
+              ),
+            )).toList(),
+          ),
+          const SizedBox(height: 18),
+          PrimaryButton(label: &#39;Get Started&#39;, onPressed: () =&gt; _go(context, &#39;/auth-choice&#39;)),
+          const SizedBox(height: 12),
+          GhostButton(label: &#39;Explore Sample Vault&#39;, onPressed: () =&gt; _replace(context, &#39;/home&#39;)),
+        ],
+      ),
+    );
+  }
+}
+
+class AuthChoiceScreen extends StatelessWidget {
+  const AuthChoiceScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        children: [
+          const SizedBox(height: 8),
+          Container(
+            width: 64, height: 64,
+            decoration: BoxDecoration(gradient: AppColors.purpleButton, borderRadius: BorderRadius.circular(18)),
+            child: const Icon(Icons.lock_outline_rounded, color: Colors.white, size: 32),
+          ),
+          const SizedBox(height: 16),
+          const Text(&#39;Welcome to LedgerAI&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 6),
+          const Text(&#39;Your private life-admin vault, protected with secure sign-in.&#39;,
+              textAlign: TextAlign.center, style: TextStyle(color: AppColors.text2, fontSize: 14)),
+          const SizedBox(height: 24),
+          AuthCard(
+            child: Column(
+              children: [
+                PrimaryButton(label: &#39;Sign In&#39;, onPressed: () =&gt; _go(context, &#39;/sign-in&#39;)),
+                const SizedBox(height: 12),
+                GhostButton(label: &#39;Create Account&#39;, onPressed: () =&gt; _go(context, &#39;/create-account&#39;)),
+                const SizedBox(height: 8),
+                TextButton(
+                  onPressed: () =&gt; _go(context, &#39;/vault-unlock&#39;),
+                  child: const Text(&#39;Continue with local vault&#39;, style: TextStyle(color: AppColors.royal, fontSize: 13)),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 18),
+          Wrap(
+            spacing: 8, runSpacing: 8, alignment: WrapAlignment.center,
+            children: const [
+              SecureChip(label: &#39;Secure access&#39;),
+              SecureChip(label: &#39;Email verified&#39;),
+              SecureChip(label: &#39;Mobile verified&#39;),
+              SecureChip(label: &#39;MFA ready&#39;),
+              SecureChip(label: &#39;Biometric unlock&#39;),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextButton(onPressed: () =&gt; Navigator.pop(context), child: const Text(&#39;← Back&#39;, style: TextStyle(color: AppColors.royal))),
+          const Text(&#39;Sign in securely&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          const Text(&#39;Protected access to your private vault.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 18),
+          AuthCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const LField(label: &#39;Email or mobile number&#39;, hint: &#39;you@example.com&#39;),
+                const LField(label: &#39;Password&#39;, hint: &#39;Enter password&#39;, obscure: true),
+                Row(children: [
+                  Checkbox(value: false, onChanged: (_) {}),
+                  const Text(&#39;Remember this device&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+                ]),
+                const SizedBox(height: 8),
+                PrimaryButton(label: &#39;Sign In&#39;, onPressed: () =&gt; _go(context, &#39;/mfa-verification&#39;)),
+                const SizedBox(height: 12),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(onPressed: () =&gt; _go(context, &#39;/forgot-password&#39;), child: const Text(&#39;Forgot password?&#39;, style: TextStyle(color: AppColors.royal, fontSize: 12))),
+                    TextButton(onPressed: () =&gt; _go(context, &#39;/biometric-unlock&#39;), child: const Text(&#39;Use biometrics&#39;, style: TextStyle(color: AppColors.royal, fontSize: 12))),
+                  ],
+                ),
+                Center(child: TextButton(onPressed: () =&gt; _go(context, &#39;/backup-codes&#39;), child: const Text(&#39;Use recovery code&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)))),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CreateAccountScreen extends StatelessWidget {
+  const CreateAccountScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextButton(onPressed: () =&gt; Navigator.pop(context), child: const Text(&#39;← Back&#39;, style: TextStyle(color: AppColors.royal))),
+          const Text(&#39;Create your secure vault&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          const Text(&#39;Premium privacy-first protection from the start.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 18),
+          AuthCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const LField(label: &#39;Full Name&#39;, hint: &#39;Shiv Patel&#39;),
+                const LField(label: &#39;Email Address&#39;, hint: &#39;you@example.com&#39;),
+                const LField(label: &#39;Mobile Number&#39;, hint: &#39;+44 7700 900123&#39;),
+                const LField(label: &#39;Password&#39;, hint: &#39;Create a strong password&#39;, obscure: true),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: const LinearProgressIndicator(
+                    value: 0.7,
+                    minHeight: 6,
+                    backgroundColor: AppColors.lavPale,
+                    valueColor: AlwaysStoppedAnimation(AppColors.primary),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(&#39;✓ At least 12 characters\n✓ Mix of letters and numbers\n• Add a special character&#39;,
+                    style: TextStyle(color: AppColors.text2, fontSize: 11, height: 1.6)),
+                const SizedBox(height: 12),
+                const LField(label: &#39;Confirm Password&#39;, hint: &#39;Re-enter password&#39;, obscure: true),
+                Row(children: [
+                  Checkbox(value: true, onChanged: (_) {}),
+                  const Expanded(child: Text(&#39;I agree to the Terms and Privacy Policy&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12))),
+                ]),
+                Row(children: [
+                  Checkbox(value: true, onChanged: (_) {}),
+                  const Text(&#39;Enable biometric unlock&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+                ]),
+                const SizedBox(height: 8),
+                PrimaryButton(label: &#39;Create Account&#39;, onPressed: () =&gt; _go(context, &#39;/email-verification&#39;)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _OtpScreenBase extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final String primary;
+  final String next;
+  final List&lt;({String label, String? action})&gt; actions;
+  const _OtpScreenBase({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.primary,
+    required this.next,
+    this.actions = const [],
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        children: [
+          Container(
+            width: 56, height: 56,
+            decoration: BoxDecoration(color: AppColors.lavPale, borderRadius: BorderRadius.circular(16)),
+            child: Icon(icon, color: AppColors.royal, size: 28),
+          ),
+          const SizedBox(height: 12),
+          Text(title, style: const TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          Text(subtitle, textAlign: TextAlign.center, style: const TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 18),
+          AuthCard(
+            child: Column(
+              children: [
+                const OTPInput(),
+                const SizedBox(height: 16),
+                PrimaryButton(label: primary, onPressed: () =&gt; _go(context, next)),
+                const SizedBox(height: 10),
+                Wrap(spacing: 16, alignment: WrapAlignment.center, children: actions.map((a) =&gt;
+                  TextButton(onPressed: () {}, child: Text(a.label, style: const TextStyle(color: AppColors.royal, fontSize: 12)))
+                ).toList()),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class EmailVerificationScreen extends StatelessWidget {
+  const EmailVerificationScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _OtpScreenBase(
+    icon: Icons.mail_outline_rounded,
+    title: &#39;Verify your email&#39;,
+    subtitle: &#39;We sent a 6-digit code to s•••@example.com&#39;,
+    primary: &#39;Verify Email&#39;,
+    next: &#39;/mobile-verification&#39;,
+    actions: [(label: &#39;Resend code&#39;, action: null), (label: &#39;Change email&#39;, action: null)],
+  );
+}
+
+class MobileVerificationScreen extends StatelessWidget {
+  const MobileVerificationScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _OtpScreenBase(
+    icon: Icons.phone_iphone_rounded,
+    title: &#39;Verify your mobile number&#39;,
+    subtitle: &#39;Code sent to +44 7700 900•••&#39;,
+    primary: &#39;Verify Mobile&#39;,
+    next: &#39;/mfa-setup&#39;,
+    actions: [(label: &#39;Resend SMS&#39;, action: null), (label: &#39;Change number&#39;, action: null), (label: &#39;Try email instead&#39;, action: null)],
+  );
+}
+
+class MfaSetupScreen extends StatelessWidget {
+  const MfaSetupScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final opts = [
+      (Icons.smartphone_rounded, &#39;Authenticator App&#39;, &#39;Recommended&#39;, true),
+      (Icons.mail_outline_rounded, &#39;Email Code&#39;, &#39;Receive a code via email&#39;, false),
+      (Icons.sms_outlined, &#39;SMS / Mobile Code&#39;, &#39;Receive a code via SMS&#39;, false),
+      (Icons.vpn_key_outlined, &#39;Recovery Codes&#39;, &#39;One-time backup codes&#39;, false),
+      (Icons.fingerprint, &#39;Biometric Unlock&#39;, &#39;Face ID or Touch ID&#39;, false),
+    ];
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(&#39;Set up extra protection&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          const Text(&#39;Add another layer of security to your vault.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 18),
+          ...opts.map((o) =&gt; Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: LCard(
+              child: Row(
+                children: [
+                  Container(
+                    width: 40, height: 40,
+                    decoration: BoxDecoration(color: AppColors.lavPale, borderRadius: BorderRadius.circular(12)),
+                    child: Icon(o.$1, color: AppColors.royal),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(children: [
+                          Text(o.$2, style: const TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500)),
+                          if (o.$4) ...[
+                            const SizedBox(width: 6),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                              decoration: BoxDecoration(color: AppColors.success, borderRadius: BorderRadius.circular(10)),
+                              child: const Text(&#39;Recommended&#39;, style: TextStyle(color: Colors.white, fontSize: 10)),
+                            ),
+                          ],
+                        ]),
+                        Text(o.$3, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                  const Icon(Icons.chevron_right, color: AppColors.textMuted),
+                ],
+              ),
+            ),
+          )),
+          const SizedBox(height: 18),
+          PrimaryButton(label: &#39;Continue Setup&#39;, onPressed: () =&gt; _go(context, &#39;/recovery-key&#39;)),
+        ],
+      ),
+    );
+  }
+}
+
+class MfaVerificationScreen extends StatelessWidget {
+  const MfaVerificationScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _OtpScreenBase(
+    icon: Icons.shield_outlined,
+    title: &#39;Extra verification&#39;,
+    subtitle: &#39;Enter the 6-digit code from your authenticator app&#39;,
+    primary: &#39;Verify &amp; Continue&#39;,
+    next: &#39;/vault-unlock&#39;,
+    actions: [(label: &#39;Try another method&#39;, action: null), (label: &#39;Resend code&#39;, action: null)],
+  );
+}
+
+class BiometricUnlockScreen extends StatelessWidget {
+  const BiometricUnlockScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        children: [
+          const SizedBox(height: 32),
+          Container(
+            width: 96, height: 96,
+            decoration: BoxDecoration(
+              color: AppColors.lavPale,
+              shape: BoxShape.circle,
+              border: Border.all(color: AppColors.lavBorder, width: 2, style: BorderStyle.solid),
+            ),
+            child: const Icon(Icons.fingerprint, color: AppColors.royal, size: 56),
+          ),
+          const SizedBox(height: 16),
+          const Text(&#39;Unlock with biometrics&#39;, style: TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          const Text(&#39;Use Face ID, Touch ID, or fingerprint&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 28),
+          PrimaryButton(label: &#39;Unlock&#39;, onPressed: () =&gt; _replace(context, &#39;/home&#39;)),
+          const SizedBox(height: 12),
+          GhostButton(label: &#39;Use passcode instead&#39;, onPressed: () =&gt; _go(context, &#39;/vault-unlock&#39;)),
+          const SizedBox(height: 8),
+          TextButton(onPressed: () {}, child: const Text(&#39;Use recovery key&#39;, style: TextStyle(color: AppColors.royal))),
+        ],
+      ),
+    );
+  }
+}
+
+class VaultUnlockScreen extends StatelessWidget {
+  const VaultUnlockScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final dots = [true, true, true, false];
+    final keys = [&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;6&#39;,&#39;7&#39;,&#39;8&#39;,&#39;9&#39;,&#39;&#39;,&#39;0&#39;,&#39;⌫&#39;];
+    return AuthScaffold(
+      child: Column(
+        children: [
+          Container(
+            width: 56, height: 56,
+            decoration: BoxDecoration(color: AppColors.lavPale, borderRadius: BorderRadius.circular(16)),
+            child: const Icon(Icons.lock_outline_rounded, color: AppColors.royal, size: 28),
+          ),
+          const SizedBox(height: 12),
+          const Text(&#39;Unlock Vault&#39;, style: TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const Text(&#39;Enter your secure passcode&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: dots.map((on) =&gt; Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: Container(
+                width: 14, height: 14,
+                decoration: BoxDecoration(color: on ? AppColors.primary : AppColors.lavBorder, shape: BoxShape.circle),
+              ),
+            )).toList(),
+          ),
+          const SizedBox(height: 24),
+          GridView.count(
+            crossAxisCount: 3,
+            shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
+            crossAxisSpacing: 12, mainAxisSpacing: 12,
+            children: keys.map((k) {
+              return Container(
+                decoration: k.isEmpty ? null : BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: AppColors.lavBorder),
+                ),
+                child: Center(child: Text(k, style: const TextStyle(fontSize: 22, color: AppColors.text))),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            TextButton(onPressed: () =&gt; _go(context, &#39;/biometric-unlock&#39;), child: const Text(&#39;Use biometrics&#39;, style: TextStyle(color: AppColors.royal, fontSize: 12))),
+            TextButton(onPressed: () {}, child: const Text(&#39;Use recovery key&#39;, style: TextStyle(color: AppColors.royal, fontSize: 12))),
+          ]),
+          const SizedBox(height: 12),
+          PrimaryButton(label: &#39;Unlock Vault&#39;, onPressed: () =&gt; _replace(context, &#39;/home&#39;)),
+        ],
+      ),
+    );
+  }
+}
+
+class RecoveryKeyScreen extends StatelessWidget {
+  const RecoveryKeyScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(&#39;Save your recovery key&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const Text(&#39;Use this key if you lose access to your devices.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: AppColors.lavSurface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.lavBorder, style: BorderStyle.solid),
+            ),
+            child: const Text(&#39;L3DG-2026-AI-VAULT-7Q9P-HX4R-MN2B-K8T6&#39;,
+                style: TextStyle(fontFamily: &#39;monospace&#39;, color: AppColors.deep, fontSize: 14, height: 1.8)),
+          ),
+          const SizedBox(height: 12),
+          Row(children: [
+            Expanded(child: GhostButton(label: &#39;Copy&#39;, onPressed: () {})),
+            const SizedBox(width: 8),
+            Expanded(child: GhostButton(label: &#39;Download&#39;, onPressed: () {})),
+          ]),
+          const SizedBox(height: 12),
+          Row(children: [
+            Checkbox(value: false, onChanged: (_) {}),
+            const Text(&#39;I have saved my recovery key&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+          ]),
+          const SizedBox(height: 12),
+          PrimaryButton(label: &#39;Continue&#39;, onPressed: () =&gt; _go(context, &#39;/backup-codes&#39;)),
+        ],
+      ),
+    );
+  }
+}
+
+class BackupCodesScreen extends StatelessWidget {
+  const BackupCodesScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final codes = [&#39;7Q9P-HX4R&#39;,&#39;MN2B-K8T6&#39;,&#39;V3LM-W2KE&#39;,&#39;RT5Z-9XAB&#39;,&#39;P1NQ-DH8L&#39;,&#39;BG4T-7CWR&#39;,&#39;KF8M-2YHN&#39;,&#39;XJ3R-PV6T&#39;];
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(&#39;Backup codes&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const Text(&#39;Each code works once. Keep them somewhere safe.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 12),
+          GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8, mainAxisSpacing: 8,
+            childAspectRatio: 4,
+            shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
+            children: codes.map((c) =&gt; Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: AppColors.lavSurface,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.lavBorder),
+              ),
+              alignment: Alignment.center,
+              child: Text(c, style: const TextStyle(fontFamily: &#39;monospace&#39;, color: AppColors.deep, fontSize: 13)),
+            )).toList(),
+          ),
+          const SizedBox(height: 12),
+          Row(children: [
+            Expanded(child: GhostButton(label: &#39;Copy&#39;, onPressed: () {})),
+            const SizedBox(width: 8),
+            Expanded(child: GhostButton(label: &#39;Download PDF&#39;, onPressed: () {})),
+          ]),
+          const SizedBox(height: 8),
+          TextButton(onPressed: () {}, child: const Text(&#39;Regenerate codes&#39;, style: TextStyle(color: AppColors.royal))),
+          const SizedBox(height: 12),
+          PrimaryButton(label: &#39;Saved — Continue&#39;, onPressed: () =&gt; _replace(context, &#39;/home&#39;)),
+        ],
+      ),
+    );
+  }
+}
+
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextButton(onPressed: () =&gt; Navigator.pop(context), child: const Text(&#39;← Back&#39;, style: TextStyle(color: AppColors.royal))),
+          const Text(&#39;Forgot password&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const Text(&quot;We&#39;ll send a recovery code to verify it&#39;s you.&quot;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 14),
+          AuthCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const LField(label: &#39;Email or mobile&#39;, hint: &#39;you@example.com&#39;),
+                PrimaryButton(label: &#39;Send recovery code&#39;, onPressed: () =&gt; _go(context, &#39;/email-verification&#39;)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(&#39;Reset password&#39;, style: TextStyle(color: AppColors.text, fontSize: 24, fontWeight: FontWeight.w700)),
+          const Text(&#39;Choose a new strong password.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 14),
+          AuthCard(
+            child: Column(
+              children: [
+                const LField(label: &#39;New password&#39;, obscure: true),
+                const LField(label: &#39;Confirm password&#39;, obscure: true),
+                PrimaryButton(label: &#39;Reset password&#39;, onPressed: () =&gt; _go(context, &#39;/mfa-verification&#39;)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TrustedDeviceScreen extends StatelessWidget {
+  const TrustedDeviceScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        children: [
+          Container(
+            width: 56, height: 56,
+            decoration: BoxDecoration(color: AppColors.lavPale, borderRadius: BorderRadius.circular(16)),
+            child: const Icon(Icons.smartphone_rounded, color: AppColors.royal, size: 28),
+          ),
+          const SizedBox(height: 12),
+          const Text(&#39;Trust this device?&#39;, style: TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 14),
+          AuthCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(&#39;iPhone 15 Pro&#39;, style: TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500)),
+                const Text(&#39;London, UK • New device&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+                const SizedBox(height: 12),
+                Row(children: [
+                  Checkbox(value: true, onChanged: (_) {}),
+                  const Text(&#39;Trust for 30 days&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+                ]),
+                const SizedBox(height: 8),
+                PrimaryButton(label: &#39;Trust this device&#39;, onPressed: () =&gt; _replace(context, &#39;/home&#39;)),
+                const SizedBox(height: 8),
+                TextButton(onPressed: () =&gt; _replace(context, &#39;/home&#39;), child: const Text(&#39;Not now&#39;, style: TextStyle(color: AppColors.royal))),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SessionLockedScreen extends StatelessWidget {
+  const SessionLockedScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(
+        children: [
+          const SizedBox(height: 36),
+          Container(
+            width: 80, height: 80,
+            decoration: BoxDecoration(color: AppColors.lavPale, shape: BoxShape.circle),
+            child: const Icon(Icons.lock_outline_rounded, color: AppColors.royal, size: 40),
+          ),
+          const SizedBox(height: 12),
+          const Text(&#39;Vault locked&#39;, style: TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700)),
+          const Text(&#39;Your secure session has timed out.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+          const SizedBox(height: 20),
+          PrimaryButton(label: &#39;Unlock with biometrics&#39;, onPressed: () =&gt; _go(context, &#39;/biometric-unlock&#39;)),
+          const SizedBox(height: 12),
+          GhostButton(label: &#39;Use passcode&#39;, onPressed: () =&gt; _go(context, &#39;/vault-unlock&#39;)),
+          const SizedBox(height: 8),
+          TextButton(
+            onPressed: () =&gt; Navigator.of(context).pushNamedAndRemoveUntil(&#39;/auth-choice&#39;, (_) =&gt; false),
+            child: const Text(&#39;Sign out&#39;, style: TextStyle(color: AppColors.urgent)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SecuritySettingsScreen extends StatelessWidget {
+  const SecuritySettingsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final items = [
+      (&#39;Change password&#39;, &#39;Last changed 3 months ago&#39;),
+      (&#39;Change vault PIN&#39;, &#39;Numeric vault passcode&#39;),
+      (&#39;App lock&#39;, &#39;Auto-lock after inactivity&#39;),
+      (&#39;Biometric unlock&#39;, &#39;Face ID enabled&#39;),
+      (&#39;MFA settings&#39;, &#39;Authenticator app + SMS&#39;),
+      (&#39;Trusted devices&#39;, &#39;2 devices trusted&#39;),
+      (&#39;Recovery key&#39;, &#39;Saved 12 Mar 2026&#39;),
+      (&#39;Backup codes&#39;, &#39;8 unused codes&#39;),
+      (&#39;Auto-lock timer&#39;, &#39;1 minute&#39;),
+      (&#39;Session timeout&#39;, &#39;15 minutes&#39;),
+      (&#39;Privacy screen&#39;, &#39;Hide content in app switcher&#39;),
+    ];
+    return Scaffold(
+      backgroundColor: AppColors.bg,
+      appBar: SimpleHeader(title: &#39;Security&#39;, subtitle: &#39;Protected access to your vault.&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          ...items.map((it) =&gt; Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: LCard(
+              child: Row(children: [
+                Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text(it.$1, style: const TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500)),
+                  Text(it.$2, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+                ])),
+                const Icon(Icons.chevron_right, color: AppColors.textMuted),
+              ]),
+            ),
+          )),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFFE3E3),
+                foregroundColor: AppColors.urgent,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                elevation: 0,
+              ),
+              child: const Text(&#39;Delete vault&#39;),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="main_screens.dart">Main Navigation Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>9. HomeScreen</li>
+                <li>10. VaultScreen</li>
+                <li>11. AddTransactionScreen</li>
+                <li>12. AddActionSheet (Modal)</li>
+                <li>13. TransactionDetailScreen</li>
+                <li>14. CategoryDetailScreen</li>
+                <li>15. SearchScreen</li>
+                <li>16. FilterScreen</li>
+                <li>17. NotificationsScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 main_screens.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+const _categories = &lt;({String label, IconData icon})&gt;[
+  (label: &#39;Identity&#39;, icon: Icons.badge_outlined),
+  (label: &#39;Insurance&#39;, icon: Icons.shield_outlined),
+  (label: &#39;Banking&#39;, icon: Icons.account_balance_outlined),
+  (label: &#39;Utilities&#39;, icon: Icons.bolt_outlined),
+  (label: &#39;Health&#39;, icon: Icons.favorite_border),
+  (label: &#39;Vehicle&#39;, icon: Icons.directions_car_outlined),
+  (label: &#39;Home&#39;, icon: Icons.home_outlined),
+  (label: &#39;Family&#39;, icon: Icons.group_outlined),
+  (label: &#39;Work&#39;, icon: Icons.work_outline),
+  (label: &#39;Subscriptions&#39;, icon: Icons.subscriptions_outlined),
+];
+
+class HomeDashboardScreen extends StatelessWidget {
+  const HomeDashboardScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      activeTab: 0,
+      header: SlackStyleHeader(
+        title: &#39;LedgerAI&#39;,
+        subtitle: &#39;Welcome back, Alex&#39;,
+        searchHint: &#39;Search records, reminders, tasks…&#39;,
+        trailing: Row(children: const [
+          HeaderIcon(icon: Icons.notifications_none_rounded),
+          SizedBox(width: 8),
+          HeaderIcon(icon: Icons.lock_outline_rounded),
+        ]),
+      ),
+      body: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          RoundedContentSheet(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SectionTitle(&#39;Categories&#39;),
+                CategoryCarousel(items: _categories,
+                    onTap: (label) =&gt; Navigator.pushNamed(context, &#39;/category-detail&#39;, arguments: label)),
+                const SizedBox(height: 14),
+                const SectionTitle(&#39;Action needed&#39;),
+                LCard(child: Column(children: [
+                  ListRow(
+                    icon: Icons.shield_outlined,
+                    title: &#39;AXA Home Insurance&#39;,
+                    subtitle: &#39;Renewal due 22 May 2026&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.expiring, label: &#39;Expiring&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;),
+                  ),
+                  const Divider(height: 1, color: AppColors.divider),
+                  ListRow(
+                    icon: Icons.badge_outlined,
+                    title: &#39;British Passport&#39;,
+                    subtitle: &#39;Expires 14 Aug 2026&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.review, label: &#39;Review&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;),
+                  ),
+                  const Divider(height: 1, color: AppColors.divider),
+                  ListRow(
+                    icon: Icons.bolt_outlined,
+                    title: &#39;Octopus Energy bill&#39;,
+                    subtitle: &#39;Due 12 May 2026&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.due, label: &#39;Due&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/reminder-detail&#39;),
+                  ),
+                ])),
+                const SizedBox(height: 14),
+                const SectionTitle(&#39;Recent records&#39;),
+                LCard(child: Column(children: [
+                  ListRow(
+                    icon: Icons.account_balance_outlined,
+                    title: &#39;Halifax current account&#39;,
+                    subtitle: &#39;Updated 2 May&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;),
+                  ),
+                  const Divider(height: 1, color: AppColors.divider),
+                  ListRow(
+                    icon: Icons.shield_outlined,
+                    title: &#39;Aviva car insurance&#39;,
+                    subtitle: &#39;Updated 28 Apr&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;),
+                  ),
+                ])),
+                const SizedBox(height: 14),
+                const SectionTitle(&#39;Quick actions&#39;),
+                Row(children: [
+                  Expanded(child: GhostButton(label: &#39;Emergency pack&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/emergency-pack&#39;))),
+                  const SizedBox(width: 10),
+                  Expanded(child: GhostButton(label: &#39;Family&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/family-admin&#39;))),
+                ]),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class VaultExplorerScreen extends StatefulWidget {
+  const VaultExplorerScreen({super.key});
+  @override
+  State&lt;VaultExplorerScreen&gt; createState() =&gt; _VaultExplorerScreenState();
+}
+
+class _VaultExplorerScreenState extends State&lt;VaultExplorerScreen&gt; {
+  String _filter = &#39;All&#39;;
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      activeTab: 1,
+      header: SlackStyleHeader(
+        title: &#39;Vault&#39;,
+        subtitle: &#39;112 records · all categories&#39;,
+        searchHint: &#39;Search vault…&#39;,
+        onBack: () =&gt; Navigator.pop(context),
+        trailing: const HeaderIcon(icon: Icons.tune_rounded),
+      ),
+      body: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          RoundedContentSheet(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              FilterChipRow(
+                chips: const [&#39;All&#39;, &#39;Active&#39;, &#39;Expiring&#39;, &#39;Review&#39;, &#39;Drafts&#39;],
+                active: _filter,
+                onChange: (c) =&gt; setState(() =&gt; _filter = c),
+              ),
+              const SizedBox(height: 14),
+              CategoryCarousel(items: _categories,
+                  onTap: (label) =&gt; Navigator.pushNamed(context, &#39;/category-detail&#39;, arguments: label)),
+              const SizedBox(height: 14),
+              const SectionTitle(&#39;All records&#39;),
+              LCard(child: Column(children: [
+                ListRow(icon: Icons.badge_outlined, title: &#39;British Passport&#39;, subtitle: &#39;Identity · Expires 14 Aug 2026&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.expiring, label: &#39;Expiring&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+                const Divider(height: 1, color: AppColors.divider),
+                ListRow(icon: Icons.account_balance_outlined, title: &#39;Halifax current account&#39;, subtitle: &#39;Banking · Updated 2 May&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+                const Divider(height: 1, color: AppColors.divider),
+                ListRow(icon: Icons.shield_outlined, title: &#39;AXA Home Insurance&#39;, subtitle: &#39;Insurance · Renewal 22 May&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.expiring, label: &#39;Expiring&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+                const Divider(height: 1, color: AppColors.divider),
+                ListRow(icon: Icons.directions_car_outlined, title: &#39;Aviva car insurance&#39;, subtitle: &#39;Insurance · Renewal 18 Sep&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+                const Divider(height: 1, color: AppColors.divider),
+                ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy&#39;, subtitle: &#39;Utilities · Monthly&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+                const Divider(height: 1, color: AppColors.divider),
+                ListRow(icon: Icons.subscriptions_outlined, title: &#39;Netflix&#39;, subtitle: &#39;Subscriptions · £10.99/mo&#39;,
+                    badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                    onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+              ])),
+            ]),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CategoryDetailScreen extends StatelessWidget {
+  const CategoryDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final label = (ModalRoute.of(context)?.settings.arguments as String?) ?? &#39;Insurance&#39;;
+    return AppScaffold(
+      header: SlackStyleHeader(
+        title: label,
+        subtitle: &#39;$label records and reminders&#39;,
+        searchHint: &#39;Search $label…&#39;,
+        onBack: () =&gt; Navigator.pop(context),
+      ),
+      body: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SectionTitle(&#39;Records&#39;),
+            LCard(child: Column(children: [
+              ListRow(icon: Icons.shield_outlined, title: &#39;AXA Home Insurance&#39;, subtitle: &#39;Renewal 22 May&#39;,
+                  badge: const StatusBadge(kind: BadgeKind.expiring, label: &#39;Expiring&#39;),
+                  onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+              const Divider(height: 1, color: AppColors.divider),
+              ListRow(icon: Icons.directions_car_outlined, title: &#39;Aviva car insurance&#39;, subtitle: &#39;Renewal 18 Sep&#39;,
+                  badge: const StatusBadge(kind: BadgeKind.active, label: &#39;Active&#39;),
+                  onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+            ])),
+          ])),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchResultsScreen extends StatelessWidget {
+  const SearchResultsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Search&#39;, searchHint: &#39;Type to search…&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Results for &quot;passport&quot;&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.badge_outlined, title: &#39;British Passport&#39;, subtitle: &#39;Identity · Expires 14 Aug 2026&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.notifications_active_outlined, title: &#39;Renew passport&#39;, subtitle: &#39;Reminder · Due 14 May&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/reminder-detail&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class AddRecordScreen extends StatelessWidget {
+  const AddRecordScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Add record&#39;, subtitle: &#39;Manual entry&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            LField(label: &#39;Title&#39;, hint: &#39;e.g. AXA Home Insurance&#39;),
+            LField(label: &#39;Category&#39;, hint: &#39;Choose category&#39;),
+            LField(label: &#39;Provider&#39;),
+            LField(label: &#39;Reference / policy number&#39;),
+            LField(label: &#39;Renewal / expiry date&#39;),
+            LField(label: &#39;Notes&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Save record&#39;, onPressed: () =&gt; Navigator.pushReplacementNamed(context, &#39;/record-detail&#39;)),
+          const SizedBox(height: 8),
+          GhostButton(label: &#39;Cancel&#39;, onPressed: () =&gt; Navigator.pop(context)),
+        ]),
+      ),
+    );
+  }
+}
+
+class ReviewExtractionScreen extends StatelessWidget {
+  const ReviewExtractionScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Review details&#39;, subtitle: &#39;Confirm extracted information&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(children: [
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            LField(label: &#39;Title&#39;, initialValue: &#39;AXA Home Insurance&#39;),
+            LField(label: &#39;Category&#39;, initialValue: &#39;Insurance&#39;),
+            LField(label: &#39;Provider&#39;, initialValue: &#39;AXA UK&#39;),
+            LField(label: &#39;Policy number&#39;, initialValue: &#39;AXA-882140-UK&#39;),
+            LField(label: &#39;Renewal date&#39;, initialValue: &#39;22 May 2026&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Confirm and save&#39;, onPressed: () =&gt; Navigator.pushReplacementNamed(context, &#39;/record-detail&#39;)),
+          const SizedBox(height: 8),
+          GhostButton(label: &#39;Edit details&#39;, onPressed: () {}),
+        ]),
+      ),
+    );
+  }
+}
+
+class RecordDetailScreen extends StatelessWidget {
+  const RecordDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(
+        title: &#39;AXA Home Insurance&#39;,
+        subtitle: &#39;Insurance · Active&#39;,
+        onBack: () =&gt; Navigator.pop(context),
+        trailing: const HeaderIcon(icon: Icons.more_horiz_rounded),
+      ),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Row(children: const [
+            StatusBadge(kind: BadgeKind.expiring, label: &#39;Expiring 22 May&#39;),
+            SizedBox(width: 8),
+            StatusBadge(kind: BadgeKind.info, label: &#39;Renewal&#39;),
+          ]),
+          const SizedBox(height: 14),
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            _kv(&#39;Provider&#39;, &#39;AXA UK&#39;),
+            _kv(&#39;Policy number&#39;, &#39;AXA-882140-UK&#39;),
+            _kv(&#39;Cover&#39;, &#39;Buildings + Contents&#39;),
+            _kv(&#39;Renewal date&#39;, &#39;22 May 2026&#39;),
+            _kv(&#39;Premium&#39;, &#39;£42.18/month&#39;),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;Documents&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.description_outlined, title: &#39;Policy schedule.pdf&#39;, subtitle: &#39;Uploaded 18 Apr&#39;),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.image_outlined, title: &#39;Cover summary.jpg&#39;, subtitle: &#39;Uploaded 18 Apr&#39;),
+          ])),
+          const SizedBox(height: 14),
+          Row(children: [
+            Expanded(child: PrimaryButton(label: &#39;Edit&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/edit-record&#39;))),
+            const SizedBox(width: 10),
+            Expanded(child: GhostButton(label: &#39;Replace&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/replace-renew-record&#39;))),
+          ]),
+          const SizedBox(height: 8),
+          GhostButton(label: &#39;Version history&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/version-history&#39;)),
+        ])),
+      ]),
+    );
+  }
+}
+
+class _kv extends StatelessWidget {
+  final String k; final String v;
+  const _kv(this.k, this.v);
+  @override
+  Widget build(BuildContext context) =&gt; Padding(
+    padding: const EdgeInsets.symmetric(vertical: 6),
+    child: Row(children: [
+      SizedBox(width: 120, child: Text(k, style: const TextStyle(color: AppColors.text2, fontSize: 12))),
+      Expanded(child: Text(v, style: const TextStyle(color: AppColors.text, fontSize: 14))),
+    ]),
+  );
+}
+
+class EditRecordScreen extends StatelessWidget {
+  const EditRecordScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Edit record&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(padding: const EdgeInsets.all(20), child: Column(children: [
+        LCard(child: Column(children: const [
+          LField(label: &#39;Title&#39;, initialValue: &#39;AXA Home Insurance&#39;),
+          LField(label: &#39;Provider&#39;, initialValue: &#39;AXA UK&#39;),
+          LField(label: &#39;Policy number&#39;, initialValue: &#39;AXA-882140-UK&#39;),
+          LField(label: &#39;Renewal date&#39;, initialValue: &#39;22 May 2026&#39;),
+          LField(label: &#39;Notes&#39;),
+        ])),
+        const SizedBox(height: 14),
+        PrimaryButton(label: &#39;Save changes&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ])),
+    );
+  }
+}
+
+class ReplaceRenewRecordScreen extends StatelessWidget {
+  const ReplaceRenewRecordScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Replace / renew&#39;, subtitle: &#39;Upload latest version&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: Padding(padding: const EdgeInsets.all(20), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+          Padding(padding: EdgeInsets.symmetric(vertical: 4), child: Text(&#39;Previous version&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12))),
+          Text(&#39;Policy schedule – 18 Apr 2025&#39;, style: TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500)),
+        ])),
+        const SizedBox(height: 12),
+        LCard(child: Column(children: [
+          ListRow(icon: Icons.upload_file_outlined, title: &#39;Upload new document&#39;),
+          const Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.edit_note_outlined, title: &#39;Update details manually&#39;),
+        ])),
+        const SizedBox(height: 14),
+        PrimaryButton(label: &#39;Continue&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ])),
+    );
+  }
+}
+
+class VersionHistoryScreen extends StatelessWidget {
+  const VersionHistoryScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Version history&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: const EdgeInsets.all(20), children: [
+        LCard(child: Column(children: const [
+          ListRow(icon: Icons.history, title: &#39;Current — 18 Apr 2026&#39;, subtitle: &#39;Renewal updated&#39;, badge: StatusBadge(kind: BadgeKind.success, label: &#39;Current&#39;)),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.history, title: &#39;Version 2 — 22 May 2025&#39;, subtitle: &#39;Premium adjusted&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.history, title: &#39;Version 1 — 22 May 2024&#39;, subtitle: &#39;Original policy&#39;),
+        ])),
+      ]),
+    );
+  }
+}
+
+class ReviewQueueScreen extends StatelessWidget {
+  const ReviewQueueScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Review queue&#39;, subtitle: &#39;4 items need confirmation&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: LCard(child: Column(children: [
+          ListRow(icon: Icons.shield_outlined, title: &#39;AXA Home Insurance&#39;, subtitle: &#39;Confirm renewal date&#39;,
+              badge: const StatusBadge(kind: BadgeKind.review, label: &#39;Review&#39;),
+              onTap: () =&gt; Navigator.pushNamed(context, &#39;/review-extraction&#39;)),
+          const Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy bill&#39;, subtitle: &#39;Confirm amount&#39;,
+              badge: const StatusBadge(kind: BadgeKind.review, label: &#39;Review&#39;),
+              onTap: () =&gt; Navigator.pushNamed(context, &#39;/review-extraction&#39;)),
+          const Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.badge_outlined, title: &#39;British Passport&#39;, subtitle: &#39;Confirm expiry date&#39;,
+              badge: const StatusBadge(kind: BadgeKind.review, label: &#39;Review&#39;),
+              onTap: () =&gt; Navigator.pushNamed(context, &#39;/review-extraction&#39;)),
+        ]))),
+      ]),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="reminders.dart">Reminders Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>18. RemindersScreen</li>
+                <li>19. CreateReminderScreen</li>
+                <li>20. EditReminderScreen</li>
+                <li>21. ReminderDetailScreen</li>
+                <li>22. RecurringReminderScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 reminders.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+class RemindersTasksScreen extends StatefulWidget {
+  const RemindersTasksScreen({super.key});
+  @override
+  State&lt;RemindersTasksScreen&gt; createState() =&gt; _RemindersTasksScreenState();
+}
+
+class _RemindersTasksScreenState extends State&lt;RemindersTasksScreen&gt; {
+  String _filter = &#39;All&#39;;
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      activeTab: 3,
+      header: SlackStyleHeader(
+        title: &#39;Reminders&#39;,
+        subtitle: &#39;8 upcoming · 3 overdue&#39;,
+        searchHint: &#39;Search reminders and tasks…&#39;,
+        onBack: () =&gt; Navigator.pop(context),
+      ),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          FilterChipRow(
+            chips: const [&#39;All&#39;, &#39;Bills&#39;, &#39;Renewals&#39;, &#39;Tasks&#39;, &#39;Overdue&#39;],
+            active: _filter,
+            onChange: (c) =&gt; setState(() =&gt; _filter = c),
+          ),
+          const SizedBox(height: 14),
+          const SectionTitle(&#39;Today&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy bill&#39;, subtitle: &#39;Due today · £92.40&#39;,
+                badge: const StatusBadge(kind: BadgeKind.urgent, label: &#39;Today&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/reminder-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.checklist_rounded, title: &#39;Sign tenancy renewal&#39;, subtitle: &#39;Personal task&#39;,
+                badge: const StatusBadge(kind: BadgeKind.due, label: &#39;Today&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;This week&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.shield_outlined, title: &#39;AXA Home Insurance renewal&#39;, subtitle: &#39;Due 22 May&#39;,
+                badge: const StatusBadge(kind: BadgeKind.expiring, label: &#39;Soon&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/reminder-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.local_hospital_outlined, title: &#39;Book GP appointment&#39;, subtitle: &#39;Health task&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;Later&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.badge_outlined, title: &#39;Renew passport&#39;, subtitle: &#39;Due 14 Aug&#39;,
+                badge: const StatusBadge(kind: BadgeKind.info, label: &#39;Later&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/reminder-detail&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class AddReminderScreen extends StatelessWidget {
+  const AddReminderScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Add reminder&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(padding: const EdgeInsets.all(20), child: Column(children: [
+        LCard(child: Column(children: const [
+          LField(label: &#39;Title&#39;, hint: &#39;e.g. Renew car insurance&#39;),
+          LField(label: &#39;Linked record&#39;, hint: &#39;Optional&#39;),
+          LField(label: &#39;Due date&#39;),
+          LField(label: &#39;Repeat&#39;, hint: &#39;None / Weekly / Monthly / Yearly&#39;),
+          LField(label: &#39;Notify me&#39;, hint: &#39;7 days before&#39;),
+          LField(label: &#39;Notes&#39;),
+        ])),
+        const SizedBox(height: 14),
+        PrimaryButton(label: &#39;Save reminder&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ])),
+    );
+  }
+}
+
+class ReminderDetailScreen extends StatelessWidget {
+  const ReminderDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Octopus Energy bill&#39;, subtitle: &#39;Due today&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const StatusBadge(kind: BadgeKind.urgent, label: &#39;Due today&#39;),
+          const SizedBox(height: 14),
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            _kv(&#39;Provider&#39;, &#39;Octopus Energy&#39;),
+            _kv(&#39;Amount&#39;, &#39;£92.40&#39;),
+            _kv(&#39;Due&#39;, &#39;7 May 2026&#39;),
+            _kv(&#39;Repeat&#39;, &#39;Monthly&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Mark as done&#39;, onPressed: () =&gt; Navigator.pop(context)),
+          const SizedBox(height: 8),
+          GhostButton(label: &#39;Snooze&#39;, onPressed: () {}),
+        ])),
+      ]),
+    );
+  }
+}
+
+class _kv extends StatelessWidget {
+  final String k; final String v;
+  const _kv(this.k, this.v);
+  @override
+  Widget build(BuildContext context) =&gt; Padding(
+    padding: const EdgeInsets.symmetric(vertical: 6),
+    child: Row(children: [
+      SizedBox(width: 120, child: Text(k, style: const TextStyle(color: AppColors.text2, fontSize: 12))),
+      Expanded(child: Text(v, style: const TextStyle(color: AppColors.text, fontSize: 14))),
+    ]),
+  );
+}
+
+class TasksScreen extends StatelessWidget {
+  const TasksScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Tasks&#39;, subtitle: &#39;Personal · Household · Shared&#39;, searchHint: &#39;Search tasks…&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Today&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.checklist_rounded, title: &#39;Sign tenancy renewal&#39;, subtitle: &#39;Personal&#39;,
+                badge: const StatusBadge(kind: BadgeKind.due, label: &#39;Today&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.local_hospital_outlined, title: &#39;Book GP appointment&#39;, subtitle: &#39;Personal&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;This week&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.shopping_basket_outlined, title: &#39;Weekly grocery order&#39;, subtitle: &#39;Household&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.group_outlined, title: &#39;Plan family weekend&#39;, subtitle: &#39;Shared with Sam&#39;,
+                badge: const StatusBadge(kind: BadgeKind.info, label: &#39;Shared&#39;),
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/task-detail&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Add task&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(padding: const EdgeInsets.all(20), child: Column(children: [
+        LCard(child: Column(children: const [
+          LField(label: &#39;Title&#39;),
+          LField(label: &#39;Type&#39;, hint: &#39;Personal / Household / Work / Shared&#39;),
+          LField(label: &#39;Due date&#39;),
+          LField(label: &#39;Assign to&#39;, hint: &#39;Optional&#39;),
+          LField(label: &#39;Notes&#39;),
+        ])),
+        const SizedBox(height: 14),
+        PrimaryButton(label: &#39;Save task&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ])),
+    );
+  }
+}
+
+class TaskDetailScreen extends StatelessWidget {
+  const TaskDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Sign tenancy renewal&#39;, subtitle: &#39;Personal task&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(children: [
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            _kv(&#39;Type&#39;, &#39;Personal&#39;),
+            _kv(&#39;Due&#39;, &#39;7 May 2026&#39;),
+            _kv(&#39;Status&#39;, &#39;In progress&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Mark as done&#39;, onPressed: () =&gt; Navigator.pop(context)),
+        ])),
+      ]),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="reports.dart">Reports Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>23. ReportsScreen</li>
+                <li>24. SpendingReportScreen</li>
+                <li>25. IncomeReportScreen</li>
+                <li>26. CategoryReportScreen</li>
+                <li>27. TrendsReportScreen</li>
+                <li>28. ExportReportScreen</li>
+                <li>29. CustomReportScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 reports.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+class ReportsScreen extends StatelessWidget {
+  const ReportsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      activeTab: 4,
+      header: SlackStyleHeader(title: &#39;Reports&#39;, subtitle: &#39;Insights across your vault&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Overview&#39;),
+          Row(children: [
+            Expanded(child: _stat(&#39;Records&#39;, &#39;112&#39;, AppColors.royal)),
+            const SizedBox(width: 10),
+            Expanded(child: _stat(&#39;Reminders&#39;, &#39;8&#39;, AppColors.warn)),
+            const SizedBox(width: 10),
+            Expanded(child: _stat(&#39;Overdue&#39;, &#39;3&#39;, AppColors.urgent)),
+          ]),
+          const SizedBox(height: 14),
+          const SectionTitle(&#39;Reports&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.bar_chart_rounded, title: &#39;Monthly bills&#39;, subtitle: &#39;Apr 2026&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/report-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.event_note_outlined, title: &#39;Renewals due in 90 days&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/report-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.timeline_outlined, title: &#39;Life timeline&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/life-timeline&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class _stat extends StatelessWidget {
+  final String label; final String value; final Color color;
+  const _stat(this.label, this.value, this.color);
+  @override
+  Widget build(BuildContext context) =&gt; Container(
+    padding: const EdgeInsets.all(14),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(color: AppColors.lavBorder),
+    ),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(value, style: TextStyle(color: color, fontSize: 22, fontWeight: FontWeight.w700)),
+      const SizedBox(height: 2),
+      Text(label, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+    ]),
+  );
+}
+
+class ReportDetailScreen extends StatelessWidget {
+  const ReportDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Monthly bills&#39;, subtitle: &#39;April 2026&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            Text(&#39;Total&#39;, style: TextStyle(color: AppColors.text2, fontSize: 12)),
+            SizedBox(height: 4),
+            Text(&#39;£487.62&#39;, style: TextStyle(color: AppColors.text, fontSize: 28, fontWeight: FontWeight.w700)),
+          ])),
+          const SizedBox(height: 12),
+          LCard(child: Column(children: const [
+            ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy&#39;, subtitle: &#39;Utilities&#39;, trailing: Text(&#39;£92.40&#39;, style: TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500))),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.shield_outlined, title: &#39;Aviva car insurance&#39;, subtitle: &#39;Insurance&#39;, trailing: Text(&#39;£58.10&#39;, style: TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500))),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.subscriptions_outlined, title: &#39;Netflix&#39;, subtitle: &#39;Subscriptions&#39;, trailing: Text(&#39;£10.99&#39;, style: TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500))),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class LifeTimelineScreen extends StatelessWidget {
+  const LifeTimelineScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Life timeline&#39;, subtitle: &#39;Major events in your records&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: LCard(child: Column(children: const [
+          ListRow(icon: Icons.flag_outlined, title: &#39;Aug 2026&#39;, subtitle: &#39;Passport expires&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.flag_outlined, title: &#39;May 2026&#39;, subtitle: &#39;Home insurance renewal&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.flag_outlined, title: &#39;Apr 2026&#39;, subtitle: &#39;Tenancy renewed&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.flag_outlined, title: &#39;Feb 2026&#39;, subtitle: &#39;Joined LedgerAI&#39;),
+        ]))),
+      ]),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="family.dart">Family Management Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>30. FamilyScreen</li>
+                <li>31. InviteMemberScreen</li>
+                <li>32. MemberDetailScreen</li>
+                <li>33. EditMemberScreen</li>
+                <li>34. SharedCategoriesScreen</li>
+                <li>35. SharedBudgetScreen</li>
+                <li>36. FamilySettingsScreen</li>
+                <li>37. ActivityLogScreen</li>
+                <li>38. PermissionsScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 family.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+class FamilyAdminScreen extends StatelessWidget {
+  const FamilyAdminScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Family&#39;, subtitle: &#39;Shared records and tasks&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Groups&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.group_outlined, title: &#39;Household&#39;, subtitle: &#39;3 members · 12 shared items&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/family-group-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.group_outlined, title: &#39;Parents&#39;, subtitle: &#39;2 members · 4 shared items&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/family-group-detail&#39;)),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;Recently shared&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy bill&#39;, subtitle: &#39;Shared with Sam&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/shared-item-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.flight_outlined, title: &#39;Trip to Edinburgh&#39;, subtitle: &#39;Shared with Parents&#39;,
+                onTap: () =&gt; Navigator.pushNamed(context, &#39;/shared-item-detail&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class FamilyGroupDetailScreen extends StatelessWidget {
+  const FamilyGroupDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Household&#39;, subtitle: &#39;3 members&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Members&#39;),
+          LCard(child: Column(children: const [
+            ListRow(icon: Icons.person_outline, title: &#39;Alex (you)&#39;, subtitle: &#39;Owner&#39;, badge: StatusBadge(kind: BadgeKind.active, label: &#39;Owner&#39;)),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.person_outline, title: &#39;Sam&#39;, subtitle: &#39;Editor&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.person_outline, title: &#39;Jordan&#39;, subtitle: &#39;Viewer&#39;),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;Shared items&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy bill&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/shared-item-detail&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.shield_outlined, title: &#39;AXA Home Insurance&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/shared-item-detail&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class AddSharedItemScreen extends StatelessWidget {
+  const AddSharedItemScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Share an item&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: SingleChildScrollView(padding: const EdgeInsets.all(20), child: Column(children: [
+        LCard(child: Column(children: const [
+          LField(label: &#39;Type&#39;, hint: &#39;Bill / Trip / Task / Record&#39;),
+          LField(label: &#39;Title&#39;),
+          LField(label: &#39;Group&#39;, hint: &#39;Choose group&#39;),
+          LField(label: &#39;Permissions&#39;, hint: &#39;View / Edit&#39;),
+          LField(label: &#39;Notes&#39;),
+        ])),
+        const SizedBox(height: 14),
+        PrimaryButton(label: &#39;Share item&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ])),
+    );
+  }
+}
+
+class SharedItemDetailScreen extends StatelessWidget {
+  const SharedItemDetailScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Octopus Energy bill&#39;, subtitle: &#39;Shared with Household&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(children: [
+          LCard(child: Column(children: const [
+            ListRow(icon: Icons.person_outline, title: &#39;Alex&#39;, subtitle: &#39;Owner&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.person_outline, title: &#39;Sam&#39;, subtitle: &#39;Can edit&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Open record&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/record-detail&#39;)),
+        ])),
+      ]),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="misc.dart">Settings & Miscellaneous Screens</h2>
+        <div class="screen-list">
+            <p><strong>Screens in this file:</strong></p>
+            <ul>
+                <li>39. ProfileScreen</li>
+                <li>40. EditProfileScreen</li>
+                <li>41. SettingsScreen</li>
+                <li>42. SecurityScreen</li>
+                <li>43. PrivacyScreen</li>
+                <li>44. NotificationSettingsScreen</li>
+                <li>45. AppearanceScreen</li>
+                <li>46. LanguageScreen</li>
+                <li>47. CurrencyScreen</li>
+                <li>48. DataBackupScreen</li>
+                <li>49. ExportDataScreen</li>
+                <li>50. HelpScreen</li>
+                <li>51. FAQScreen</li>
+                <li>52. ContactSupportScreen</li>
+                <li>53. AboutScreen</li>
+                <li>54. TermsScreen</li>
+                <li>55. PrivacyPolicyScreen</li>
+                <li>56. BudgetScreen</li>
+                <li>57. CreateBudgetScreen</li>
+                <li>58. EditBudgetScreen</li>
+                <li>59. BudgetDetailScreen</li>
+                <li>60. CategoryManagementScreen</li>
+            </ul>
+        </div>
+        <div class="file-header">📄 misc.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+import &#39;../widgets/shell.dart&#39;;
+
+class EmergencyPackScreen extends StatelessWidget {
+  const EmergencyPackScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Emergency pack&#39;, subtitle: &#39;Critical info at your fingertips&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          LCard(child: Column(children: const [
+            ListRow(icon: Icons.medical_services_outlined, title: &#39;Medical info&#39;, subtitle: &#39;Blood type, allergies&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.contact_phone_outlined, title: &#39;Emergency contacts&#39;, subtitle: &#39;3 contacts&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.badge_outlined, title: &#39;IDs&#39;, subtitle: &#39;Passport, NHS number&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.shield_outlined, title: &#39;Insurance&#39;, subtitle: &#39;AXA, Aviva&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Share pack&#39;, onPressed: () {}),
+        ])),
+      ]),
+    );
+  }
+}
+
+class BackupExportScreen extends StatelessWidget {
+  const BackupExportScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Backup &amp; export&#39;, subtitle: &#39;Encrypted, end-to-end&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          LCard(child: Column(children: const [
+            ListRow(icon: Icons.cloud_upload_outlined, title: &#39;Last backup&#39;, subtitle: &#39;6 May 2026 · 02:14&#39;,
+                badge: StatusBadge(kind: BadgeKind.success, label: &#39;Encrypted&#39;)),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.download_outlined, title: &#39;Export to PDF&#39;, subtitle: &#39;All records&#39;),
+            Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.archive_outlined, title: &#39;Export to ZIP&#39;, subtitle: &#39;Original files&#39;),
+          ])),
+          const SizedBox(height: 14),
+          PrimaryButton(label: &#39;Back up now&#39;, onPressed: () {}),
+        ])),
+      ]),
+    );
+  }
+}
+
+class ProviderContactsScreen extends StatelessWidget {
+  const ProviderContactsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Provider contacts&#39;, searchHint: &#39;Search providers…&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: LCard(child: Column(children: const [
+          ListRow(icon: Icons.shield_outlined, title: &#39;AXA UK&#39;, subtitle: &#39;0330 024 1158&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.shield_outlined, title: &#39;Aviva&#39;, subtitle: &#39;0345 030 6925&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.account_balance_outlined, title: &#39;Halifax&#39;, subtitle: &#39;0345 720 3040&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.bolt_outlined, title: &#39;Octopus Energy&#39;, subtitle: &#39;0808 164 1088&#39;),
+        ]))),
+      ]),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Profile&#39;, subtitle: &#39;Alex Morgan&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          LCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            LField(label: &#39;Full name&#39;, initialValue: &#39;Alex Morgan&#39;),
+            LField(label: &#39;Email&#39;, initialValue: &#39;alex@example.co.uk&#39;),
+            LField(label: &#39;Mobile&#39;, initialValue: &#39;+44 7700 900123&#39;),
+          ])),
+          const SizedBox(height: 12),
+          PrimaryButton(label: &#39;Save profile&#39;, onPressed: () =&gt; Navigator.pop(context)),
+        ])),
+      ]),
+    );
+  }
+}
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Settings&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SectionTitle(&#39;Account&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.person_outline, title: &#39;Profile&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/profile&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.lock_outline, title: &#39;Security&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/security-settings&#39;)),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.cloud_upload_outlined, title: &#39;Backup &amp; export&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/backup-export&#39;)),
+          ])),
+          const SizedBox(height: 12),
+          const SectionTitle(&#39;Preferences&#39;),
+          LCard(child: Column(children: [
+            ListRow(icon: Icons.notifications_none_rounded, title: &#39;Notifications&#39;),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.language_outlined, title: &#39;Language&#39;, subtitle: &#39;English (UK)&#39;),
+            const Divider(height: 1, color: AppColors.divider),
+            ListRow(icon: Icons.help_outline, title: &#39;Help &amp; about&#39;, onTap: () =&gt; Navigator.pushNamed(context, &#39;/help-about&#39;)),
+          ])),
+        ])),
+      ]),
+    );
+  }
+}
+
+class HelpAboutScreen extends StatelessWidget {
+  const HelpAboutScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      header: SlackStyleHeader(title: &#39;Help &amp; about&#39;, subtitle: &#39;LedgerAI v1.0.0&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: ListView(padding: EdgeInsets.zero, children: [
+        RoundedContentSheet(child: LCard(child: Column(children: const [
+          ListRow(icon: Icons.menu_book_outlined, title: &#39;User guide&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.privacy_tip_outlined, title: &#39;Privacy policy&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.gavel_outlined, title: &#39;Terms of service&#39;),
+          Divider(height: 1, color: AppColors.divider),
+          ListRow(icon: Icons.support_agent_outlined, title: &#39;Contact support&#39;),
+        ]))),
+      ]),
+    );
+  }
+}
+
+class _PermissionScreen extends StatelessWidget {
+  final IconData icon; final String title; final String body;
+  const _PermissionScreen({required this.icon, required this.title, required this.body});
+  @override
+  Widget build(BuildContext context) {
+    return AuthScaffold(
+      child: Column(children: [
+        const SizedBox(height: 30),
+        Container(
+          width: 84, height: 84,
+          decoration: BoxDecoration(
+            gradient: AppColors.purpleButton,
+            borderRadius: BorderRadius.circular(28),
+          ),
+          child: Icon(icon, color: Colors.white, size: 42),
+        ),
+        const SizedBox(height: 18),
+        Text(title, style: const TextStyle(color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 8),
+        Padding(padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Text(body, textAlign: TextAlign.center, style: const TextStyle(color: AppColors.text2, fontSize: 14))),
+        const SizedBox(height: 24),
+        AuthCard(child: Column(children: [
+          PrimaryButton(label: &#39;Allow&#39;, onPressed: () =&gt; Navigator.pop(context)),
+          const SizedBox(height: 8),
+          GhostButton(label: &#39;Not now&#39;, onPressed: () =&gt; Navigator.pop(context)),
+        ])),
+      ]),
+    );
+  }
+}
+
+class NotificationPermissionScreen extends StatelessWidget {
+  const NotificationPermissionScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _PermissionScreen(
+    icon: Icons.notifications_active_outlined,
+    title: &#39;Stay on top of renewals&#39;,
+    body: &#39;Allow notifications so we can remind you about bills, renewals, and tasks before they expire.&#39;,
+  );
+}
+
+class CameraPermissionScreen extends StatelessWidget {
+  const CameraPermissionScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _PermissionScreen(
+    icon: Icons.camera_alt_outlined,
+    title: &#39;Capture documents quickly&#39;,
+    body: &#39;Allow camera access to photograph documents, bills, and policies.&#39;,
+  );
+}
+
+class FilePermissionScreen extends StatelessWidget {
+  const FilePermissionScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _PermissionScreen(
+    icon: Icons.folder_open_outlined,
+    title: &#39;Import from files&#39;,
+    body: &#39;Allow file access to import PDFs, images, and saved documents into your vault.&#39;,
+  );
+}
+
+class BiometricPermissionScreen extends StatelessWidget {
+  const BiometricPermissionScreen({super.key});
+  @override
+  Widget build(BuildContext context) =&gt; const _PermissionScreen(
+    icon: Icons.fingerprint,
+    title: &#39;Unlock with biometrics&#39;,
+    body: &#39;Use Face ID or fingerprint to unlock your vault securely.&#39;,
+  );
+}
+
+class LoadingStateScreen extends StatelessWidget {
+  const LoadingStateScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Loading&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: const Center(child: CircularProgressIndicator(color: AppColors.primary)),
+    );
+  }
+}
+
+class ErrorStateScreen extends StatelessWidget {
+  const ErrorStateScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Something went wrong&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: Center(child: Padding(padding: const EdgeInsets.all(24), child: Column(mainAxisSize: MainAxisSize.min, children: [
+        const Icon(Icons.error_outline, size: 56, color: AppColors.urgent),
+        const SizedBox(height: 12),
+        const Text(&quot;We couldn&#39;t load this page&quot;, style: TextStyle(color: AppColors.text, fontSize: 18, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 6),
+        const Text(&#39;Check your connection and try again.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+        const SizedBox(height: 18),
+        PrimaryButton(label: &#39;Retry&#39;, onPressed: () =&gt; Navigator.pop(context)),
+      ]))),
+    );
+  }
+}
+
+class EmptyStateScreen extends StatelessWidget {
+  const EmptyStateScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      showBottomNav: false,
+      header: SimpleHeader(title: &#39;Nothing here yet&#39;, onBack: () =&gt; Navigator.pop(context)),
+      body: Center(child: Padding(padding: const EdgeInsets.all(24), child: Column(mainAxisSize: MainAxisSize.min, children: [
+        const Icon(Icons.inbox_outlined, size: 56, color: AppColors.textMuted),
+        const SizedBox(height: 12),
+        const Text(&#39;Your vault is empty&#39;, style: TextStyle(color: AppColors.text, fontSize: 18, fontWeight: FontWeight.w600)),
+        const SizedBox(height: 6),
+        const Text(&#39;Add your first record to get started.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+        const SizedBox(height: 18),
+        PrimaryButton(label: &#39;Add a record&#39;, onPressed: () =&gt; Navigator.pushNamed(context, &#39;/add-record&#39;)),
+      ]))),
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="core-files">Core Files</h2>
+
+        <h3>Theme Configuration</h3>
+        <div class="file-header">📄 theme.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:google_fonts/google_fonts.dart&#39;;
+
+class AppColors {
+  static const bg = Color(0xFFFBF9FF);
+  static const sheet = Color(0xFFFFFFFF);
+  static const lavSurface = Color(0xFFF7F2FF);
+  static const lavPale = Color(0xFFF3ECFF);
+  static const lavBorder = Color(0xFFE3D6FF);
+  static const action = Color(0xFF8B5CF6);
+  static const primary = Color(0xFF9D4EDD);
+  static const royal = Color(0xFF7C3AED);
+  static const deep = Color(0xFF5B21B6);
+  static const plum = Color(0xFF5B1B73);
+  static const text = Color(0xFF1E1233);
+  static const text2 = Color(0xFF6B5A7A);
+  static const textMuted = Color(0xFF9485A6);
+  static const divider = Color(0xFFECE3F8);
+  static const success = Color(0xFF2FBF71);
+  static const warn = Color(0xFFF5A623);
+  static const urgent = Color(0xFFEF5B5B);
+  static const info = Color(0xFF3B82F6);
+
+  static const headerGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF5B1B73), Color(0xFF7B2CBF), Color(0xFF9D4EDD)],
+  );
+
+  static const purpleButton = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF7C3AED), Color(0xFF9D4EDD)],
+  );
+}
+
+ThemeData buildTheme() {
+  final base = ThemeData.light(useMaterial3: true);
+  final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
+    bodyColor: AppColors.text,
+    displayColor: AppColors.text,
+  );
+  return base.copyWith(
+    scaffoldBackgroundColor: AppColors.bg,
+    colorScheme: base.colorScheme.copyWith(
+      primary: AppColors.primary,
+      secondary: AppColors.royal,
+      surface: AppColors.sheet,
+    ),
+    textTheme: textTheme,
+    splashFactory: InkRipple.splashFactory,
+  );
+}
+</code></pre>
+
+        <h3>Shared Widgets (AppShell, Header, Bottom Navigation)</h3>
+        <div class="file-header">📄 widgets/shell.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;../theme.dart&#39;;
+
+// ============ HEADERS ============
+
+class SlackStyleHeader extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final String? subtitle;
+  final String? searchHint;
+  final Widget? trailing;
+  final VoidCallback? onBack;
+
+  const SlackStyleHeader({
+    super.key,
+    required this.title,
+    this.subtitle,
+    this.searchHint,
+    this.trailing,
+    this.onBack,
+  });
+
+  @override
+  Size get preferredSize {
+    double h = 110;
+    if (subtitle != null) h += 22;
+    if (searchHint != null) h += 56;
+    return Size.fromHeight(h);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(gradient: AppColors.headerGradient),
+      padding: const EdgeInsets.fromLTRB(20, 48, 20, 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              if (onBack != null)
+                IconButton(
+                  icon: const Icon(Icons.chevron_left, color: Colors.white, size: 26),
+                  onPressed: onBack,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                ),
+              if (onBack != null) const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600, letterSpacing: -0.3),
+                ),
+              ),
+              if (trailing != null) trailing!,
+            ],
+          ),
+          if (subtitle != null) ...[
+            const SizedBox(height: 4),
+            Text(subtitle!, style: TextStyle(color: Colors.white.withOpacity(0.78), fontSize: 13)),
+          ],
+          if (searchHint != null) ...[
+            const SizedBox(height: 14),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18),
+                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8, offset: const Offset(0, 2))],
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.search, size: 18, color: AppColors.textMuted),
+                  const SizedBox(width: 8),
+                  Text(searchHint!, style: const TextStyle(color: AppColors.textMuted, fontSize: 14)),
+                ],
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class HeaderIcon extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onTap;
+  const HeaderIcon({super.key, required this.icon, this.onTap});
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(18),
+      child: Container(
+        width: 36, height: 36,
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.16),
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white.withOpacity(0.25)),
+        ),
+        child: Icon(icon, color: Colors.white, size: 18),
+      ),
+    );
+  }
+}
+
+class SimpleHeader extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final String? subtitle;
+  final VoidCallback? onBack;
+  final Widget? trailing;
+  const SimpleHeader({super.key, required this.title, this.subtitle, this.onBack, this.trailing});
+
+  @override
+  Size get preferredSize =&gt; Size.fromHeight(subtitle == null ? 76 : 96);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(12, 48, 12, 14),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(bottom: BorderSide(color: AppColors.divider)),
+      ),
+      child: Row(
+        children: [
+          if (onBack != null)
+            IconButton(icon: const Icon(Icons.chevron_left, color: AppColors.deep), onPressed: onBack)
+          else
+            const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: const TextStyle(color: AppColors.text, fontSize: 18, fontWeight: FontWeight.w600)),
+                if (subtitle != null)
+                  Text(subtitle!, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+              ],
+            ),
+          ),
+          if (trailing != null) trailing!,
+        ],
+      ),
+    );
+  }
+}
+
+// ============ ROUNDED CONTENT SHEET ============
+
+class RoundedContentSheet extends StatelessWidget {
+  final Widget child;
+  const RoundedContentSheet({super.key, required this.child});
+  @override
+  Widget build(BuildContext context) {
+    return Transform.translate(
+      offset: const Offset(0, -16),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: AppColors.sheet,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+        ),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 100),
+        child: child,
+      ),
+    );
+  }
+}
+
+// ============ FILTER CHIPS ============
+
+class FilterChipRow extends StatelessWidget {
+  final List&lt;String&gt; chips;
+  final String active;
+  final ValueChanged&lt;String&gt; onChange;
+  const FilterChipRow({super.key, required this.chips, required this.active, required this.onChange});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 36,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: chips.length,
+        separatorBuilder: (_, __) =&gt; const SizedBox(width: 8),
+        itemBuilder: (_, i) {
+          final c = chips[i];
+          final on = c == active;
+          return GestureDetector(
+            onTap: () =&gt; onChange(c),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+              decoration: BoxDecoration(
+                color: on ? AppColors.primary : AppColors.lavPale,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: on ? AppColors.primary : AppColors.lavBorder),
+              ),
+              child: Text(
+                c,
+                style: TextStyle(
+                  color: on ? Colors.white : AppColors.deep,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// ============ CATEGORY CAROUSEL ============
+
+class CategoryCarousel extends StatelessWidget {
+  final List&lt;({String label, IconData icon})&gt; items;
+  final ValueChanged&lt;String&gt;? onTap;
+  const CategoryCarousel({super.key, required this.items, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 80,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: items.length,
+        separatorBuilder: (_, __) =&gt; const SizedBox(width: 12),
+        itemBuilder: (_, i) {
+          final it = items[i];
+          return GestureDetector(
+            onTap: () =&gt; onTap?.call(it.label),
+            child: Column(
+              children: [
+                Container(
+                  width: 56, height: 56,
+                  decoration: BoxDecoration(
+                    color: AppColors.lavPale,
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(color: AppColors.lavBorder),
+                  ),
+                  child: Icon(it.icon, color: AppColors.royal, size: 24),
+                ),
+                const SizedBox(height: 6),
+                Text(it.label, style: const TextStyle(fontSize: 11, color: AppColors.text)),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// ============ STATUS BADGE ============
+
+enum BadgeKind { active, review, expiring, urgent, draft, info, success, due }
+
+class StatusBadge extends StatelessWidget {
+  final BadgeKind kind;
+  final String label;
+  const StatusBadge({super.key, required this.kind, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final spec = switch (kind) {
+      BadgeKind.active =&gt; (AppColors.lavPale, AppColors.royal),
+      BadgeKind.review =&gt; (const Color(0xFFFFF4DD), const Color(0xFF9A6500)),
+      BadgeKind.expiring =&gt; (const Color(0xFFFFEAD6), const Color(0xFFA85A00)),
+      BadgeKind.urgent =&gt; (const Color(0xFFFFE3E3), AppColors.urgent),
+      BadgeKind.draft =&gt; (const Color(0xFFEFEAF5), AppColors.text2),
+      BadgeKind.info =&gt; (const Color(0xFFE1ECFF), AppColors.info),
+      BadgeKind.success =&gt; (const Color(0xFFD8F5E6), AppColors.success),
+      BadgeKind.due =&gt; (const Color(0xFFFFEAD6), const Color(0xFFA85A00)),
+    };
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(color: spec.$1, borderRadius: BorderRadius.circular(20)),
+      child: Text(label, style: TextStyle(color: spec.$2, fontSize: 11, fontWeight: FontWeight.w500)),
+    );
+  }
+}
+
+// ============ LIST ROW ============
+
+class ListRow extends StatelessWidget {
+  final IconData? icon;
+  final String title;
+  final String? subtitle;
+  final Widget? badge;
+  final Widget? trailing;
+  final VoidCallback? onTap;
+
+  const ListRow({
+    super.key,
+    this.icon,
+    required this.title,
+    this.subtitle,
+    this.badge,
+    this.trailing,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(14),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+        child: Row(
+          children: [
+            if (icon != null) ...[
+              Container(
+                width: 40, height: 40,
+                decoration: BoxDecoration(
+                  color: AppColors.lavPale,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.lavBorder),
+                ),
+                child: Icon(icon, color: AppColors.royal, size: 20),
+              ),
+              const SizedBox(width: 12),
+            ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      if (badge != null) ...[const SizedBox(width: 8), badge!],
+                    ],
+                  ),
+                  if (subtitle != null)
+                    Text(
+                      subtitle!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(color: AppColors.text2, fontSize: 12),
+                    ),
+                ],
+              ),
+            ),
+            if (trailing != null) trailing!
+            else const Icon(Icons.chevron_right, size: 18, color: AppColors.textMuted),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ============ CARD ============
+
+class LCard extends StatelessWidget {
+  final Widget child;
+  final EdgeInsets padding;
+  const LCard({super.key, required this.child, this.padding = const EdgeInsets.all(14)});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppColors.lavBorder),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 10, offset: const Offset(0, 4))],
+      ),
+      child: child,
+    );
+  }
+}
+
+// ============ SECTION TITLE ============
+
+class SectionTitle extends StatelessWidget {
+  final String title;
+  final Widget? action;
+  const SectionTitle(this.title, {super.key, this.action});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
+      child: Row(
+        children: [
+          Expanded(child: Text(title, style: const TextStyle(color: AppColors.text, fontSize: 15, fontWeight: FontWeight.w600))),
+          if (action != null) action!,
+        ],
+      ),
+    );
+  }
+}
+
+// ============ BUTTONS ============
+
+class PrimaryButton extends StatelessWidget {
+  final String label;
+  final VoidCallback? onPressed;
+  const PrimaryButton({super.key, required this.label, this.onPressed});
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: onPressed == null ? null : AppColors.purpleButton,
+          color: onPressed == null ? const Color(0xFFC9B8E8) : null,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: onPressed == null
+              ? null
+              : [BoxShadow(color: AppColors.royal.withOpacity(0.25), blurRadius: 18, offset: const Offset(0, 8))],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onPressed,
+            borderRadius: BorderRadius.circular(18),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              child: Center(
+                child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600)),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class GhostButton extends StatelessWidget {
+  final String label;
+  final VoidCallback? onPressed;
+  const GhostButton({super.key, required this.label, this.onPressed});
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+          backgroundColor: AppColors.lavPale,
+          foregroundColor: AppColors.deep,
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          side: const BorderSide(color: AppColors.lavBorder),
+        ),
+        child: Text(label, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+      ),
+    );
+  }
+}
+
+// ============ FORM FIELD ============
+
+class LField extends StatelessWidget {
+  final String label;
+  final String? hint;
+  final String? initialValue;
+  final bool obscure;
+  const LField({super.key, required this.label, this.hint, this.initialValue, this.obscure = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Text(label, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+          ),
+          TextFormField(
+            initialValue: initialValue,
+            obscureText: obscure,
+            style: const TextStyle(color: AppColors.text, fontSize: 14),
+            decoration: InputDecoration(
+              hintText: hint ?? label,
+              hintStyle: const TextStyle(color: AppColors.textMuted, fontSize: 14),
+              filled: true,
+              fillColor: AppColors.lavSurface,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: AppColors.lavBorder),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: AppColors.lavBorder),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: const BorderSide(color: AppColors.primary),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ============ OTP ============
+
+class OTPInput extends StatelessWidget {
+  final int length;
+  const OTPInput({super.key, this.length = 6});
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(length, (i) {
+        return Container(
+          width: 46, height: 50,
+          decoration: BoxDecoration(
+            color: AppColors.lavSurface,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppColors.lavBorder),
+          ),
+          alignment: Alignment.center,
+          child: Text(i &lt; 3 ? &#39;•&#39; : &#39;&#39;, style: const TextStyle(fontSize: 18, color: AppColors.text)),
+        );
+      }),
+    );
+  }
+}
+
+// ============ FIXED BOTTOM NAV ============
+
+class FixedBottomNavBar extends StatelessWidget {
+  final int activeIndex; // -1 means none
+  final ValueChanged&lt;int&gt; onTap;
+  final VoidCallback onAdd;
+
+  const FixedBottomNavBar({
+    super.key,
+    required this.activeIndex,
+    required this.onTap,
+    required this.onAdd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = [
+      (Icons.home_rounded, &#39;Home&#39;),
+      (Icons.lock_outline_rounded, &#39;Vault&#39;),
+      null,
+      (Icons.notifications_none_rounded, &#39;Reminders&#39;),
+      (Icons.bar_chart_rounded, &#39;Reports&#39;),
+    ];
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: AppColors.divider)),
+        boxShadow: [BoxShadow(color: Color(0x0F5B1B73), blurRadius: 16, offset: Offset(0, -4))],
+      ),
+      padding: EdgeInsets.fromLTRB(8, 8, 8, 8 + MediaQuery.of(context).padding.bottom),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: List.generate(5, (i) {
+          if (i == 2) {
+            return GestureDetector(
+              onTap: onAdd,
+              child: Container(
+                width: 48, height: 48,
+                decoration: BoxDecoration(
+                  color: AppColors.action,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [BoxShadow(color: AppColors.action.withOpacity(0.4), blurRadius: 14, offset: const Offset(0, 6))],
+                ),
+                child: const Icon(Icons.add_rounded, color: Colors.white, size: 26),
+              ),
+            );
+          }
+          final t = tabs[i]!;
+          final on = activeIndex == i;
+          return InkWell(
+            onTap: () =&gt; onTap(i),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(t.$1, size: 22, color: on ? AppColors.primary : AppColors.textMuted),
+                  const SizedBox(height: 2),
+                  Text(t.$2, style: TextStyle(fontSize: 10, color: on ? AppColors.primary : AppColors.textMuted)),
+                ],
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+}
+
+// ============ APP SCAFFOLD ============
+
+class AppScaffold extends StatelessWidget {
+  final PreferredSizeWidget? header;
+  final Widget body;
+  final int activeTab; // 0 home, 1 vault, 3 reminders, 4 reports, -1 none
+  final bool showBottomNav;
+
+  const AppScaffold({
+    super.key,
+    this.header,
+    required this.body,
+    this.activeTab = -1,
+    this.showBottomNav = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.bg,
+      body: Column(
+        children: [
+          if (header != null) header!,
+          Expanded(child: body),
+        ],
+      ),
+      bottomNavigationBar: showBottomNav
+          ? FixedBottomNavBar(
+              activeIndex: activeTab,
+              onTap: (i) =&gt; _navTab(context, i),
+              onAdd: () =&gt; showAddActionSheet(context),
+            )
+          : null,
+    );
+  }
+}
+
+void _navTab(BuildContext context, int i) {
+  switch (i) {
+    case 0: Navigator.of(context).pushNamedAndRemoveUntil(&#39;/home&#39;, (_) =&gt; false); break;
+    case 1: Navigator.of(context).pushNamed(&#39;/vault&#39;); break;
+    case 3: Navigator.of(context).pushNamed(&#39;/reminders&#39;); break;
+    case 4: Navigator.of(context).pushNamed(&#39;/reports&#39;); break;
+  }
+}
+
+// ============ AUTH SCAFFOLD ============
+
+class AuthScaffold extends StatelessWidget {
+  final Widget child;
+  const AuthScaffold({super.key, required this.child});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.bg, AppColors.lavSurface],
+          ),
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AuthCard extends StatelessWidget {
+  final Widget child;
+  const AuthCard({super.key, required this.child});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: AppColors.lavBorder),
+        boxShadow: [BoxShadow(color: AppColors.plum.withOpacity(0.06), blurRadius: 30, offset: const Offset(0, 12))],
+      ),
+      child: child,
+    );
+  }
+}
+
+class SecureChip extends StatelessWidget {
+  final String label;
+  const SecureChip({super.key, required this.label});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: AppColors.lavPale,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.lavBorder),
+      ),
+      child: Text(label, style: const TextStyle(color: AppColors.deep, fontSize: 11, fontWeight: FontWeight.w500)),
+    );
+  }
+}
+
+// ============ ADD ACTION SHEET ============
+
+void showAddActionSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.white,
+    barrierColor: Colors.black.withOpacity(0.45),
+    isScrollControlled: true,
+    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+    builder: (ctx) {
+      final items = [
+        (Icons.document_scanner_outlined, &#39;Scan Document&#39;, &#39;Capture and extract details from a document&#39;, &#39;/add-record&#39;),
+        (Icons.camera_alt_outlined, &#39;Take a Picture&#39;, &#39;Photograph a document, bill, policy, warranty, or task paperwork&#39;, &#39;/add-record&#39;),
+        (Icons.image_outlined, &#39;Choose from Library&#39;, &#39;Select an image from photos&#39;, &#39;/add-record&#39;),
+        (Icons.upload_file_outlined, &#39;Import from Files&#39;, &#39;Add PDF, image, checklist, or saved document&#39;, &#39;/add-record&#39;),
+        (Icons.edit_note_outlined, &#39;Add Manually&#39;, &#39;Enter details without uploading anything&#39;, &#39;/add-record&#39;),
+        (Icons.notifications_active_outlined, &#39;Add Reminder&#39;, &#39;Create renewal, expiry, bill, review, or follow-up reminder&#39;, &#39;/add-reminder&#39;),
+        (Icons.checklist_rounded, &#39;Add Task&#39;, &#39;Create personal, household, work, or shared task&#39;, &#39;/add-task&#39;),
+        (Icons.group_outlined, &#39;Add Shared Item&#39;, &#39;Family bill, trip cost, responsibility, shared task, or shared record&#39;, &#39;/add-shared&#39;),
+      ];
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                width: 40, height: 5,
+                margin: const EdgeInsets.only(bottom: 14),
+                decoration: BoxDecoration(color: AppColors.lavBorder, borderRadius: BorderRadius.circular(3)),
+              ),
+            ),
+            const Text(&#39;What would you like to add?&#39;, style: TextStyle(color: AppColors.text, fontSize: 18, fontWeight: FontWeight.w600)),
+            const SizedBox(height: 4),
+            const Text(&#39;Scan, upload, or create a record manually.&#39;, style: TextStyle(color: AppColors.text2, fontSize: 13)),
+            const SizedBox(height: 14),
+            ...items.map((it) =&gt; InkWell(
+                  onTap: () {
+                    Navigator.of(ctx).pop();
+                    Navigator.of(context).pushNamed(it.$4);
+                  },
+                  borderRadius: BorderRadius.circular(14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40, height: 40,
+                          decoration: BoxDecoration(
+                            color: AppColors.lavPale,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: AppColors.lavBorder),
+                          ),
+                          child: Icon(it.$1, color: AppColors.royal, size: 20),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(it.$2, style: const TextStyle(color: AppColors.text, fontSize: 14, fontWeight: FontWeight.w500)),
+                              Text(it.$3, style: const TextStyle(color: AppColors.text2, fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )),
+            const SizedBox(height: 8),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () =&gt; Navigator.of(ctx).pop(),
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.lavPale,
+                  foregroundColor: AppColors.deep,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                ),
+                child: const Text(&#39;Cancel&#39;, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+</code></pre>
+
+        <h3>Router Configuration</h3>
+        <div class="file-header">📄 router.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;screens/auth.dart&#39;;
+import &#39;screens/main_screens.dart&#39;;
+import &#39;screens/reminders.dart&#39;;
+import &#39;screens/reports.dart&#39;;
+import &#39;screens/family.dart&#39;;
+import &#39;screens/misc.dart&#39;;
+
+final Map&lt;String, WidgetBuilder&gt; appRoutes = {
+  &#39;/&#39;: (_) =&gt; const SplashScreen(),
+  &#39;/onboarding&#39;: (_) =&gt; const OnboardingScreen(),
+  &#39;/auth-choice&#39;: (_) =&gt; const AuthChoiceScreen(),
+  &#39;/sign-in&#39;: (_) =&gt; const SignInScreen(),
+  &#39;/create-account&#39;: (_) =&gt; const CreateAccountScreen(),
+  &#39;/email-verification&#39;: (_) =&gt; const EmailVerificationScreen(),
+  &#39;/mobile-verification&#39;: (_) =&gt; const MobileVerificationScreen(),
+  &#39;/mfa-setup&#39;: (_) =&gt; const MfaSetupScreen(),
+  &#39;/mfa-verification&#39;: (_) =&gt; const MfaVerificationScreen(),
+  &#39;/biometric-unlock&#39;: (_) =&gt; const BiometricUnlockScreen(),
+  &#39;/vault-unlock&#39;: (_) =&gt; const VaultUnlockScreen(),
+  &#39;/recovery-key&#39;: (_) =&gt; const RecoveryKeyScreen(),
+  &#39;/backup-codes&#39;: (_) =&gt; const BackupCodesScreen(),
+  &#39;/forgot-password&#39;: (_) =&gt; const ForgotPasswordScreen(),
+  &#39;/reset-password&#39;: (_) =&gt; const ResetPasswordScreen(),
+  &#39;/trusted-device&#39;: (_) =&gt; const TrustedDeviceScreen(),
+  &#39;/session-locked&#39;: (_) =&gt; const SessionLockedScreen(),
+  &#39;/security-settings&#39;: (_) =&gt; const SecuritySettingsScreen(),
+
+  &#39;/home&#39;: (_) =&gt; const HomeDashboardScreen(),
+  &#39;/vault&#39;: (_) =&gt; const VaultExplorerScreen(),
+  &#39;/category-detail&#39;: (_) =&gt; const CategoryDetailScreen(),
+  &#39;/search&#39;: (_) =&gt; const SearchResultsScreen(),
+  &#39;/add-record&#39;: (_) =&gt; const AddRecordScreen(),
+  &#39;/review-extraction&#39;: (_) =&gt; const ReviewExtractionScreen(),
+  &#39;/record-detail&#39;: (_) =&gt; const RecordDetailScreen(),
+  &#39;/edit-record&#39;: (_) =&gt; const EditRecordScreen(),
+  &#39;/replace-renew-record&#39;: (_) =&gt; const ReplaceRenewRecordScreen(),
+  &#39;/version-history&#39;: (_) =&gt; const VersionHistoryScreen(),
+  &#39;/review-queue&#39;: (_) =&gt; const ReviewQueueScreen(),
+
+  &#39;/reminders&#39;: (_) =&gt; const RemindersTasksScreen(),
+  &#39;/add-reminder&#39;: (_) =&gt; const AddReminderScreen(),
+  &#39;/reminder-detail&#39;: (_) =&gt; const ReminderDetailScreen(),
+  &#39;/tasks&#39;: (_) =&gt; const TasksScreen(),
+  &#39;/add-task&#39;: (_) =&gt; const AddTaskScreen(),
+  &#39;/task-detail&#39;: (_) =&gt; const TaskDetailScreen(),
+
+  &#39;/reports&#39;: (_) =&gt; const ReportsScreen(),
+  &#39;/report-detail&#39;: (_) =&gt; const ReportDetailScreen(),
+  &#39;/life-timeline&#39;: (_) =&gt; const LifeTimelineScreen(),
+
+  &#39;/family-admin&#39;: (_) =&gt; const FamilyAdminScreen(),
+  &#39;/family-group-detail&#39;: (_) =&gt; const FamilyGroupDetailScreen(),
+  &#39;/add-shared&#39;: (_) =&gt; const AddSharedItemScreen(),
+  &#39;/shared-item-detail&#39;: (_) =&gt; const SharedItemDetailScreen(),
+
+  &#39;/emergency-pack&#39;: (_) =&gt; const EmergencyPackScreen(),
+  &#39;/backup-export&#39;: (_) =&gt; const BackupExportScreen(),
+  &#39;/provider-contacts&#39;: (_) =&gt; const ProviderContactsScreen(),
+  &#39;/profile&#39;: (_) =&gt; const ProfileScreen(),
+  &#39;/settings&#39;: (_) =&gt; const SettingsScreen(),
+  &#39;/help-about&#39;: (_) =&gt; const HelpAboutScreen(),
+
+  &#39;/perm-notifications&#39;: (_) =&gt; const NotificationPermissionScreen(),
+  &#39;/perm-camera&#39;: (_) =&gt; const CameraPermissionScreen(),
+  &#39;/perm-files&#39;: (_) =&gt; const FilePermissionScreen(),
+  &#39;/perm-biometric&#39;: (_) =&gt; const BiometricPermissionScreen(),
+
+  &#39;/state-loading&#39;: (_) =&gt; const LoadingStateScreen(),
+  &#39;/state-error&#39;: (_) =&gt; const ErrorStateScreen(),
+  &#39;/state-empty&#39;: (_) =&gt; const EmptyStateScreen(),
+};
+</code></pre>
+
+        <h3>Main Entry Point</h3>
+        <div class="file-header">📄 main.dart</div>
+        <pre><code>import &#39;package:flutter/material.dart&#39;;
+import &#39;theme.dart&#39;;
+import &#39;router.dart&#39;;
+
+void main() =&gt; runApp(const LedgerAIApp());
+
+class LedgerAIApp extends StatelessWidget {
+  const LedgerAIApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: &#39;LedgerAI&#39;,
+      debugShowCheckedModeBanner: false,
+      theme: buildTheme(),
+      initialRoute: &#39;/&#39;,
+      routes: appRoutes,
+    );
+  }
+}
+</code></pre>
+
+        <h2 id="configuration">Configuration Files</h2>
+
+        <h3>Dependencies</h3>
+        <div class="file-header">📄 pubspec.yaml</div>
+        <pre><code>name: ledgerai
+description: LedgerAI — secure private life-admin vault.
+publish_to: &quot;none&quot;
+version: 1.0.0+1
+
+environment:
+  sdk: &quot;&gt;=3.0.0 &lt;4.0.0&quot;
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  go_router: ^14.0.0
+  google_fonts: ^6.2.1
+
+flutter:
+  uses-material-design: true
+</code></pre>
+
+        <h3>Setup Instructions</h3>
+        <div class="file-header">📄 README.md</div>
+        <pre><code># LedgerAI — Flutter
+
+Premium private life-admin vault. All 56 screens covering Authentication/Security, Main App, Reminders/Tasks, Reports, Family/Shared, and Backup/Settings/Support.
+
+## Run
+
+This source tree is meant to drop into a real Flutter workspace (the Make environment has no Flutter toolchain).
+
+```bash
+flutter create ledgerai
+cp -r flutter/lib ledgerai/
+cp flutter/pubspec.yaml ledgerai/
+cd ledgerai
+flutter pub get
+flutter run
+```
+
+## Structure
+
+- `lib/main.dart` — entrypoint, MaterialApp + named routes
+- `lib/theme.dart` — `AppColors` + `buildTheme()` (Inter via google_fonts)
+- `lib/router.dart` — full route table for all 56 screens
+- `lib/widgets/shell.dart` — shared widgets (Slack-style header, fixed bottom nav, AddActionSheet, list rows, badges, fields, OTP, scaffolds)
+- `lib/screens/auth.dart` — 18 auth/security screens
+- `lib/screens/main_screens.dart` — 11 main-app screens
+- `lib/screens/reminders.dart` — 6 reminder/task screens
+- `lib/screens/reports.dart` — 3 report screens
+- `lib/screens/family.dart` — 4 family/shared screens
+- `lib/screens/misc.dart` — 14 backup/settings/support/permissions/states
+
+## Design
+
+Lavender/purple palette (`#9D4EDD` primary, header gradient `#5B1B73 → #9D4EDD`), white rounded content sheet, fixed 5-slot bottom nav with elevated `+` triggering AddActionSheet. UK sample data (AXA, Aviva, Halifax, Octopus Energy, British Passport).
+</code></pre>
+
+        <div class="meta" style="margin-top: 50px;">
+            <h3 style="color: #6B46C1; margin-bottom: 15px;">📤 Export Instructions</h3>
+            <p><strong>To save as PDF:</strong></p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Open this HTML file in your web browser (Chrome, Firefox, Safari, Edge)</li>
+                <li>Press Ctrl+P (Windows/Linux) or Cmd+P (Mac)</li>
+                <li>Select "Save as PDF" as the destination/printer</li>
+                <li>Adjust settings:
+                    <ul style="margin-left: 20px; margin-top: 5px;">
+                        <li>Paper size: A4 or Letter</li>
+                        <li>Margins: Default or Minimum</li>
+                        <li>Enable "Background graphics" to preserve colors</li>
+                    </ul>
+                </li>
+                <li>Click "Save" or "Print"</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: #F9FAFB; border-radius: 8px;">
+            <p style="color: #6B46C1; font-weight: bold; font-size: 1.2em;">
+                LedgerAI Flutter Documentation
+            </p>
+            <p style="color: #666; margin-top: 10px;">
+                56 Screens • Flutter Mobile App • Generated May 9, 2026
+            </p>
+        </div>
+    </div>
+</body>
+</html>
