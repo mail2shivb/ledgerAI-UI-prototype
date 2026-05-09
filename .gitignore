@@ -1,3 +1,43 @@
-.idea/
 .DS_Store
 
+# IDE files
+.idea/
+**/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Flutter / Dart generated files
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub/
+**/.pub-cache/
+**/build/
+**/coverage/
+**/doc/api/
+
+# iOS generated artifacts
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/.last_build_id
+**/ios/DerivedData/
+**/xcuserdata/
+
+# Local environment / editor state
+**/.metadata
+**/*.log
+**/*.swp
+**/.vscode/
+
+# Dependency / package manager output
+**/node_modules/
+
+# Archive / misc generated files
+*.zip
