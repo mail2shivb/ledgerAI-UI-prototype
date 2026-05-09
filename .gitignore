@@ -17,6 +17,8 @@ migrate_working_dir/
 *.ipr
 *.iws
 .idea/
+*.iml
+.idea_modules/
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
@@ -32,6 +34,30 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+pubspec.lock
+
+# iOS specific
+**/ios/Pods/
+**/ios/Podfile.lock
+**/ios/Runner.xcworkspace/
+**/ios/Flutter/Flutter.framework/
+**/ios/Flutter/Flutter.podspec
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+
+# macOS specific
+**/macos/Flutter/Flutter-Release.podspec
+**/macos/Flutter/ephemeral/
+
+# Generated Xcode build settings
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+
+# Generated files from build process
+**/*.generated.dart
+**/*.g.dart
+**/*.config.dart
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +69,20 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# OS specific
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*~
+.#*
+
+# Generated documentation
+doc/api/
+
+# Local env files
+.env
+.env.local
+.env.*.local
