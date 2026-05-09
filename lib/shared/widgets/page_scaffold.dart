@@ -24,57 +24,59 @@ class PageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.headerPurple,
-      child: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, AppSpacing.lg,
-              ),
-              child: Row(
-                children: [
-                  if (showBack)
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () => Navigator.of(context).maybePop(),
-                    ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title,
-                            style: AppTextStyles.headline
-                                .copyWith(color: Colors.white)),
-                        if (subtitle != null) ...[
-                          const SizedBox(height: 2),
-                          Text(subtitle!,
-                              style: AppTextStyles.bodySecondary
-                                  .copyWith(color: Colors.white70)),
-                        ],
-                      ],
-                    ),
-                  ),
-                  if (actions != null) ...actions!,
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: AppColors.background,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppRadius.xxl),
-                    topRight: Radius.circular(AppRadius.xxl),
-                  ),
+    return Scaffold(
+      body: Container(
+        color: AppColors.headerPurple,
+        child: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  AppSpacing.lg, AppSpacing.sm, AppSpacing.lg, AppSpacing.lg,
                 ),
-                child: child,
+                child: Row(
+                  children: [
+                    if (showBack)
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
+                        onPressed: () => Navigator.of(context).maybePop(),
+                      ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title,
+                              style: AppTextStyles.headline
+                                  .copyWith(color: Colors.white)),
+                          if (subtitle != null) ...[
+                            const SizedBox(height: 2),
+                            Text(subtitle!,
+                                style: AppTextStyles.bodySecondary
+                                    .copyWith(color: Colors.white70)),
+                          ],
+                        ],
+                      ),
+                    ),
+                    if (actions != null) ...actions!,
+                  ],
+                ),
               ),
-            ),
-          ],
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: AppColors.background,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(AppRadius.xxl),
+                      topRight: Radius.circular(AppRadius.xxl),
+                    ),
+                  ),
+                  child: child,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
